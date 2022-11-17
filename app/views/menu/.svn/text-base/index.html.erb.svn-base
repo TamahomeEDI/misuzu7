@@ -1,0 +1,43 @@
+<% title @pageTitle%>
+<script language="javascript">
+function popupForm(url) {
+    var width = 1000;
+    var height = 600;
+    referentGamen(url,width,height);
+}
+</script>
+<h1>メニューリスト</h1>
+<p></p>
+<table style="width: 100%">
+	<tr><td>
+		<div style="width:100%; height:35px;">
+			<div style="display:block; height:35px; float:right;">
+				<a class="button" href="javascript:window.location.href=window.location.href;">再表示</a>
+				<%# Delete by nmhuyen 10/10/2012> %>
+				<%#<a class="button" href="login/index">再ログイン</a> %>
+				<%# End Del %>
+				<%# Add by nmhuyen 10/10/2012> %>
+				<a class="button" href="login/logout">再ログイン</a>
+				<%# End Add %>
+			</div>
+		<div>		
+	</td></tr>
+	<tr><td>
+		<div style="width: 100%; height:768px;">
+			<div class="trees" style="width: 49%; height: 100%; border: 1px solid gray; float:left;overflow:auto">
+				<div><a href="javascript:void(0);" onclick="expandallselect()">展　開</a></div>
+				<%link_to "生産管轄工場マスタ", :controller => "seisankankatukoujoumasuta", :action => "index"%>
+				<%= raw(@htmlString) %>
+			</div>
+			<div style="width: 49%; height: 100%; float: right; border: 1px solid gray; overflow:auto">	
+				<%# Add By HuyenNM 21-9-2012%>
+				<table>	<tr><th width='205px'rowspan='2'>画面名称</th><th>画面プログラム</th></tr>
+					<tr><th>権限</th></tr>
+					</table>
+					<%#AND ADD %>
+				<%=raw(@htmlStringRight)%>
+			</div>
+		</div>		
+	</td></tr>
+</table>
+

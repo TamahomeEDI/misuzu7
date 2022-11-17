@@ -1,0 +1,1 @@
+<%= select_tag "SOSIKICODE", options_from_collection_for_select(@sosikiList, "組織コード", "ListName"), {"id" => "SOSIKICODE", :prompt => " "} %>

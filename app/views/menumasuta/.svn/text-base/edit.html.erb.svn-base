@@ -1,0 +1,21 @@
+<% title @pageTitle %>
+<h1>Editing</h1>
+<p id="notice"><label class="message"><%= @model.message%></label></p>
+<%= form_for "input_form", :url => { :action => "update", :id => @id, :screen => @screen }, :html => {:class => "nifty_form", :method => "PUT" } do |f| %>
+	<%if @screen == "1" then%>
+		<input type="hidden" name="input_form[screen]" value="1" />
+		<input type="hidden" name="input_form[担当グループコード]" value="<%=@model.担当グループコード%>" />
+		<%= render 'form1', :f => f %>
+		<p></p>
+		<%= link_to "詳細", :controller => "menumasuta", :action => "show", :id => @model.担当グループコード + "," + @model.メニューコード%> |
+	<%else%>
+		<input type="hidden" name="input_form[screen]" value="2" />
+		<input type="hidden" name="input_form[担当グループコード]" value="<%=@model.担当グループコード%>" />
+		<input type="hidden" name="input_form[メニューコード]" value="<%=@model.メニューコード%>" />
+		<%= render 'form2', :f => f %>
+		<p></p>
+		<%= link_to "詳細", :controller => "menumasuta", :action => "show", :id => @model.担当グループコード + "," + @model.画面プログラム%> |		
+	<%end%>
+<%end%>
+<%= link_to 'メニューマスタリスト', menumasuta_path %> |
+<%=link_to "メニューリスト", :controller => "menu", :action => "index"%>

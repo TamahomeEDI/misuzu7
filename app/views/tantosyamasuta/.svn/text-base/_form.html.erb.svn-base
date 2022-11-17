@@ -1,0 +1,69 @@
+　　	<div class="field_editor">
+		<%=f.label("担当者コード", "担当者:", :class => "label_editor_require")%>
+		 <% if @model.担当者コード.nil? || @model.担当者コード == "" || ( !@model.action_name.nil? && @model.action_name == "new" ) then  %>
+			<%=f.text_field(:"担当者コード", {:class => "text_editor", :size => "15", :maxlength => "10",  :value => @model.担当者コード} )%>
+			<%=f.text_field(:"担当者名称", {:class => "text_editor", :maxlength => "20", :size => "25", :value => @model.担当者名称})%>
+		 <% else %>
+		 	<%=f.text_field(:"担当者コード", {:class => "text_editor", :disabled => "disabled", :maxlength => "10", :size => "15", :value => @model.担当者コード})%>
+		 	<%=f.text_field(:"担当者名称", {:class => "text_editor", :maxlength => "20", :size => "25", :value => @model.担当者名称})%>
+		 <% end %>
+	</div>
+	
+	<div class="field_editor">
+		<%=f.label("開始日", "開始日:", :class => "label_editor_require")%>
+		 <% if @model.開始日.nil? || @model.開始日 == "" || ( !@model.action_name.nil? && @model.action_name == "new" ) then  %>
+			<%=f.text_field(:"開始日", {:class => "text_editor", :size => "12", :maxlength => "10",  :value => Publicfunction.pf_Format_Date(@model.開始日, "%Y/%m/%d"), "onchange" => "update_sosiki_list(this.value)"} )%>
+		 <% else %>
+			<%=f.text_field(:"開始日", {:class => "text_editor", :disabled =>"disabled", :size => "12", :maxlength => "10",  :value => Publicfunction.pf_Format_Date(@model.開始日, "%Y/%m/%d")} )%>
+		 <% end %>
+	</div>
+	
+	<div class="field_editor">
+		<%=f.label("終了日", "終了日:", :class => "label_editor_require")%>
+		<%=f.text_field(:"終了日", {:class => "text_editor", :size => "12", :maxlength => "10",  :value => Publicfunction.pf_Format_Date(@model.終了日, "%Y/%m/%d")} )%>
+	</div>
+
+	<div class="field_editor">
+		<%=f.label("パスワード", "パスワード:", :class => "label_editor_require")%>
+		<%=f.text_field(:"パスワード", {:class => "text_editor", :size => "20", :maxlength => "16",  :value => @model.パスワード} )%>
+	</div>
+	
+	<div class="field_editor">
+		<%=f.label("パスワード更新日", "パスワード更新日:", :class => "label_editor")%>
+		<%=f.text_field(:"パスワード更新日", {:class => "text_editor", :disabled =>"disabled", :size => "12", :maxlength => "10",  :value => Publicfunction.pf_Format_Date(@model.パスワード更新日, "%Y/%m/%d")} )%>
+	</div>
+	
+	<div class="field_editor">
+		<%=f.label("組織", "組織:", :class => "label_editor")%>
+		<div id="sosiki_ajax">
+			<%= select_tag "input_form[組織コード]", options_from_collection_for_select(@sosikiList, "組織コード", "ListName", @model.組織コード), {"id" => "input_form_組織コード", :prompt => " "} %>
+		</div>
+	</div>
+	
+	<div class="field_editor">
+		<%=f.label("担当グループ", "担当グループ:", :class => "label_editor_require")%>
+		<%= select_tag "input_form[担当グループコード]", options_from_collection_for_select(@tantoGroupList, "担当グループコード", "担当グループ名称", @model.担当グループコード), {"id" => "input_form_担当グループコード", "class" => "selectlist", :prompt => " ", "onchange" => "update_menu_list(this.value)"}%>
+	</div>
+	
+	<div class="field_editor">
+		<%=f.label("社員区分", "社員区分:", :class => "label_editor")%>
+		<%= f.select("社員区分", options_for_select([[' ', 0], ['1', 1],['2', 2],['3', 3],['4', 4],['5', 5]], Integer(  (@model.社員区分.nil? ? "0" : @model.社員区分 )  ) ) )%>
+	</div>
+	
+	<div class="field_editor">
+		<%=f.label("ログインユーザー", "ログインユーザー:", :class => "label_editor")%>
+		<%=f.text_field(:"ログインユーザー", {:class => "text_editor", :size => "37", :maxlength => "32",  :value => @model.ログインユーザー} )%>
+	</div>
+	
+	<div class="field_editor">
+		<%=f.label("フォーカス_メニューコード", "フォーカス_メニューコード", :class => "label_editor")%>
+		<div id="menu_ajax">
+			<%= select_tag "input_form[フォーカス_メニューコード]", options_from_collection_for_select(@focusmenuList, "メニューコード", "ListName", @model.フォーカス_メニューコード), {"id" => "input_form_フォーカス_メニューコード", "class" => "selectlist", :prompt => " "}%>
+		</div>
+	</div>
+	
+  <div class="actions">
+    <% f.submit %>
+    <input type="submit" value="保存する" onclick="return chkMain_Tantomasuta();">
+  </div>
+

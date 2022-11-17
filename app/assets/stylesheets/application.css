@@ -1,0 +1,190 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+body{
+	color: #333333;
+	font: 14px/1.4 Helvetica,arial,freesans,clean,sans-serif;
+}
+
+a{
+	text-decoration: none;
+}
+/* Login page */
+h1{
+/*	-moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: -moz-linear-gradient(#829AA8, #405A6A) repeat scroll 0 0 transparent;
+*/
+	background: #920005;
+    border-color: #677C89 #677C89 #6B808D;
+    border-radius: 3px 3px 0 0;
+    border-style: solid;
+    border-width: 1px;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+    padding: 8px 18px;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.7);
+}
+
+.formbody {
+    background-color: #E9F1F4;
+    border-color: #E9F1F4 #D8DEE2 #D8DEE2;
+    border-radius: 0 0 3px 3px;
+    border-style: solid;
+    border-width: 1px 1px 2px;
+    overflow: hidden;
+    padding: 2em;
+}
+
+input.text{
+	border: 1px solid #D8DEE2;
+    margin: 0.2em 0 1em;
+    padding: 5px;
+    font-size: 110%;    
+}
+
+input.submit {
+/*	
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background: -moz-linear-gradient(white, #E1E1E1) repeat scroll 0 0 transparent;
+    border-color: -moz-use-text-color -moz-use-text-color #EBEBEB;
+*/
+	border: 1px solid #920005;
+	background: #E1E1E1 repeat scroll 0 0 transparent;
+	background-color:#ECE9D8;
+    border-radius: 4px 4px 4px 4px;
+    border-style: none none solid;
+    border-width: medium medium 1px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    color: #333333;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Helvetica,arial,freesans,clean,sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    height: 34px;
+    margin-left: 1px;
+    overflow: visible;
+    padding: 0 13px;
+    position: relative;
+    text-shadow: 1px 1px 0 #FFFFFF;
+    top: 1px;
+    white-space: nowrap;
+    text-decoration: none;
+}
+
+/*  FOR EDIT INDEX*/
+div.field_editor{
+	padding-bottom: 5px;
+}
+
+label.label_editor{
+	width: 30pt;
+	text-align: right;
+}
+
+input.text_editor{
+}
+
+/* INDEX PAGE*/
+/* Add By nmHuyen for popup 24/10/2012 */
+table.tableindex_m135{
+	border: 1px solid gray;
+	width: 550px;
+} 
+
+table.tableindex_m135 thead tr{
+	background-color: #b9c9fe;	
+}
+/* End Add */
+table.tableindex2{
+	border: 1px solid gray;
+	width: 950px;
+}
+table.tableindex2 thead tr{
+	background-color: #b9c9fe;	
+}
+
+table.tableindex{
+	border: 1px solid gray;
+}
+table.tableindex thead tr{
+	background-color: #b9c9fe;	
+}
+
+table.tableindex tbody tr:nth-child(even){
+	background: #CCC;
+}
+
+table.tableindex tbody tr:nth-child(odd){
+	background: #FFF;
+}
+
+table.tableindex tbody tr:hover {
+	background-color: #d0dafd;
+}
+/* editor style */
+label.label_editor{
+	display: block;
+    float: left;
+    width: 150px;
+	text-align: right;
+	margin-right: 10px;
+}
+
+label.label_editor_require{
+	display: block;
+    float: left;
+    width: 150px;
+    color: blue;
+	text-align: right;
+	margin-right: 10px;
+}
+	
+/* message style */
+label.message{
+  color: red;
+}
+
+/* BUTON STYLE*/
+input.button{
+	background-image: url("button_on.bmp");
+	height: 35px;
+	width: 130px;
+	display:block;
+	text-decoration: none;
+	text-align: center;
+	vertical-align: middle;
+	padding-left:20px;
+	display:table-cell;
+}
+
+.selectlist
+{
+	width: 180px;
+}
+
+label.referent{
+	padding:15px;
+	text-align: left;
+	cursor: pointer;
+}

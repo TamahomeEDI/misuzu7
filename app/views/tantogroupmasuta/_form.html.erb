@@ -1,0 +1,19 @@
+　　	<div class="field_editor">
+		<%=f.label("担当グループコード", "担当グループコード:", :class => "label_editor_require")%>
+		 <% if @model.担当グループコード.nil? || @model.担当グループコード == "" || ( !@model.action_name.nil? && @model.action_name == "new" ) then  %>
+			<%=f.text_field(:"担当グループコード", {:class => "text_editor", :size => "5", :maxlength => "4",  :value => @model.担当グループコード} )%>
+		 <% else %>
+		 	<%=f.text_field(:"担当グループコード", {:class => "text_editor", :disabled => "disabled", :maxlength => "4", :size => "4", :value => @model.担当グループコード})%>
+		 <% end %>
+	</div>
+	
+	<div class="field_editor">
+		<%=f.label("担当グループ名称", "担当グループ名称:", :class => "label_editor_require")%>
+		<%=f.text_field(:"担当グループ名称", {:class => "text_editor", :size => "27", :maxlength => "20", :value => @model.担当グループ名称} )%>
+	</div>
+
+  <div class="actions">
+    <% f.submit %>
+    <input type="submit" value="保存する" onclick="return chkMain_Tantogroupmasuta();">
+  </div>
+

@@ -1,0 +1,83 @@
+<%= javascript_include_tag "mb001grid.js" %>
+<% title @pageTitle %>
+<h1>担当者グループマスタリスト</h1>
+<%= form_for "input", :url => { :action => "create"}, :html => {:method => "POST" } do |f| %>
+<div>
+	<table>
+		<tr>
+			<td>担当グループ: </td>
+			<td>
+				<%= select_tag "tantogroupcode", options_from_collection_for_select(@tantoGroupList, "担当グループコード", "担当グループ名称", @mb001heaitem.担当グループコード), {"id" => "tantogroupcode", "class" => "selectlist", :prompt => " "}%>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>組織: </td>
+			<td>
+				<div id="sosiki_ajax">
+					<input maxlength="10" onchange="update_sosikiname(this.value,'FORM_INPUT_SOSEKINAME');" id="FORM_INPUT_SOSEKICODE" type="text" name="FORM_INPUT_SOSEKICODE" value="<%=@mb001heaitem.組織コード%>">
+					<input id="FORM_INPUT_REFERENT" class="cursorhand" type="button" onclick="ReferentGamen('FORM_INPUT_SOSEKICODE','FORM_INPUT_SOSEKINAME')" >
+					<label name="FORM_INPUT_SOSEKINAME" id='FORM_INPUT_SOSEKINAME'><%=@mb001heaitem.組織名称%></label>
+				</div>
+				
+			</td>
+		</tr>
+		
+		<tr>
+			<td>担当者コード: </td>
+			<td>
+				<input type="text" size="12" maxlength="10" value="<%=@mb001heaitem.担当者コード%>" name="tantocode" id="tantocode"/>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>担当者名称曖昧:</td>
+			<td><input type="text" size="50" maxlength="20" value="<%=@mb001heaitem.担当者名称曖昧%>" name="tantoname" id="tantoname"/>
+				<select name="searchoption" id="searchoption">				  
+				  <option value="1" <%= case @mb001heaitem.担当者名称曖昧区分  when "1" then "selected='selected'" end%>>1:部分一致</option>
+				  <option value="2" <%= case @mb001heaitem.担当者名称曖昧区分  when "2" then "selected='selected'" end%>>2:前方一致</option>
+				  <option value="3" <%= case @mb001heaitem.担当者名称曖昧区分  when "3" then "selected='selected'" end%>>3:後方一致</option>
+				</select> 				
+			</td>
+		</tr>
+		<tr>
+			<td>基準日:</td>
+			<td>
+				<table cellspacing="0">
+					<tr>
+						<td>
+							<input name="kijundate" id="kijundate" type="text" onchange="update_sosiki(this.value)" value="<%=@mb001heaitem.基準日%>" />
+							<input type="hidden"" " value="<%=@mb001heaitem.事業年月%>" name="jigyodate" id="jigyodate"/>
+						</td>
+						<td style="padding-left: 200px">
+							<input type="button" " value="検　索 " id="searchForm" style="width: 100px; height: 35px"/>
+							<input type="button" value="キャンセル " id="btnCancel" style="width: 100px; height: 35px"/>
+							<input type="submit"" " value="更　新 " id="btnUpdate" style="width: 100px; height: 35px" disabled="disabled"/>
+							<input type="button"" value="データ出力 " id="btnExportCSV" style="width: 100px; height: 35px" disabled="disabled"/>
+							<input type="button" value="閉じる " id="btnClose" style="width: 100px; height: 35px"/>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+</div>
+<p id="notice"><label class="message"><%= @message%></label></p>
+<div style="padding-bottom: 5px">
+	<input type="submit" value="挿入" id="insertRows" style="width: 100px; height: 35px"/>
+	<input type="submit" value="追加 " id="addRows" style="width: 100px; height: 35px"/>
+	<input type="submit" value="複写 " id="copyRows" style="width: 100px; height: 35px"/>
+	<input type="submit" value="削除 " id="delRows" style="width: 100px; height: 35px"/>
+</div>
+<input type="hidden" value="" id="arrTantogroupcode" name="arrTantogroupcode">
+<input type="hidden" value="" id="arrSosikicode" name="arrSosikicode">
+<input type="hidden" value="" id="arrSosikiname" name="arrSosikiname">
+<input type="hidden" value="<%=@initial_jigyodate%>" id="arrJigyodate" name="arrJigyodate">
+<input type="hidden" value="" id="arrTantocode" name="arrTantocode">
+<input type="hidden" value="" id="arrTantoname" name="arrTantoname">
+<input type="hidden" value="" id="arrSearchoption" name="arrSearchoption">
+<input type="hidden" value="<%=@initial_kijundate%>" id="arrKijundate" name="arrKijundate">
+<input type="hidden" value="<%=@FlagForm%>" id="FlagForm" name="FlagForm">
+<input type="hidden" value="" id="deleteCode" name="deleteCode">
+<%= render 'gridForm', :f => f %>
+<%end%>

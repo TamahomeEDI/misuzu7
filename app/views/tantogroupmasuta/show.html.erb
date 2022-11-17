@@ -1,0 +1,16 @@
+<% title @pageTitle %>
+<p id="notice"><label class="message"><%= @model.message%></label></p>
+　<div class="field_editor">
+	<%=label_tag("担当グループコード", "担当グループコード:", :class => "label_editor")%>	
+	<input name = "担当グループコード" id = "担当グループコード" class = "text_editor" size = "5" disabled = "disabled" value="<%=@model.担当グループコード%>">
+  </div>
+	
+	<div class="field_editor">
+		<%=label_tag("担当グループ名称", "担当グループ名称:", :class => "label_editor")%>
+		<input name = "担当グループ名称" id = "担当グループ名称" class = "text_editor" size = "27" disabled = "disabled" value="<%=@model.担当グループ名称%>">
+	</div>
+	
+<p></p>
+<%= link_to "編集", :controller => "tantogroupmasuta", :action => "edit", :id => @model.担当グループコード%> |
+<%= link_to '担当グループマスタリスト', tantogroupmasuta_path %> | 
+<%=link_to "メニューリスト", :controller => "menu", :action => "index"%>

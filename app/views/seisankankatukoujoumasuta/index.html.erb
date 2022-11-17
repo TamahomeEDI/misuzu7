@@ -1,0 +1,44 @@
+<% title @pageTitle %>
+<h1>生産管轄工場マスタリスト</h1>
+<p id="notice"><label class="message"><%= @message%></label></p>
+<%= link_to "追加", {:controller => "seisankankatukoujoumasuta", :action => "new"}, "target" => "_blank"%> |
+<%= link_to "データ出力", current_url(:format => :csv)%>
+<table class="tableindex" cellspacing="0">
+	<thead>		
+	<tr>
+		<th>生産管轄工場コード</th>
+		<th>生産管轄工場名称</th>
+		<th>自社外注区分</th>
+		<th></th>
+	</tr>		
+	</thead>
+<tbody>
+<%# Add By HuyenNM 27/9/2012 FOR cache data%>
+
+
+<% cache('seisankankatukoujourisuto') do %> 
+<% @models.each do |model| %>
+  <tr>
+  	<td><%= label_tag(model.生産管轄工場コード, model.生産管轄工場コード) %></td>
+  	<td><%= label_tag(model.生産管轄工場名称, model.生産管轄工場名称) %></td>
+  	<td><%= label_tag(Seisankankatukoujoumasuta.Get自社外注区分名称(model.自社外注区分), Seisankankatukoujoumasuta.Get自社外注区分名称(model.自社外注区分)) %></td>
+    <td>
+    	<%= link_to "詳細", {:controller => "seisankankatukoujoumasuta", :action => "show", :id => model.生産管轄工場コード}, "target" => "_blank"%> | 
+	    <%= link_to "編集", {:controller => "seisankankatukoujoumasuta", :action => "edit", :id => model.生産管轄工場コード}, "target" => "_blank"%> |
+	    <%= link_to "複写", {:controller => "seisankankatukoujoumasuta", :action => "new", :id => model.生産管轄工場コード, :mode => "1"}, "target" => "_blank"%> |
+	    <%= link_to '削除', url_for(:action => 'show', :controller => 'seisankankatukoujoumasuta', :id => model.生産管轄工場コード), method: :delete, data: { confirm: 'このレコードを削除しますか？' } %>
+    </td>
+  </tr>
+<%end %>
+<%end %> 
+<%#<%= will_paginate @models if @models.respond_to? :total_pages %>
+</tbody>
+</table>
+<p></p>
+
+<%# Delete by nmhuyen 15/10/2012%>
+<%#<%=link_to "メニューリスト", :controller => "menu", :action => "index"%> 
+<%#End Del%>
+<%# Add by nmhuyen 15/10/2012 %>
+<%= link_to_function "メニューリスト", "history.back()" %>
+<%#End Add%>

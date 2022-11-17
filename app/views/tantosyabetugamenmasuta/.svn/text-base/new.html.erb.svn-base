@@ -1,0 +1,14 @@
+<% title @pageTitle %>
+<h1>担当者別画面マスタに追加</h1>
+<p id="notice"><label class="message"><%= @model.message%></label></p>
+<%= form_for "input_form", :url => { :action => "create" }, :html => {:class => "nifty_form" } do |f| %>
+<%= render 'form', :f => f %>
+<%end%>
+<p></p>
+<%# Del by nmhuyen 15/10/2012 for bug controller too long%>
+<%#<%= link_to '担当グループマスタリスト', tantosyabetugamenmasuta_path %> | 
+<%# End Del%>
+<%# Add by nmhuyen 15/10/2012 for bug controller too long%>
+<%= link_to '担当グループマスタリスト', :controller => "tantosyabetugamenmasuta", :action => "index" %> | 
+<%# End Add%>
+<%=link_to "メニューリスト", :controller => "menu", :action => "index"%>

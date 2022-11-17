@@ -1,0 +1,37 @@
+<table cellspacing="0" cellpadding="0" class="tableindex_m135" id="SEISANKANKATUKOUJOUMASUTA">
+	<thead>
+		<tr>
+			<th></th>
+			<th >生産管轄工場コード</th>
+			<th >生産管轄工場名称</th>			
+			<th>自社外注区分 </th>
+		</tr>		
+	</thead>
+<tbody>
+	<tr id='hiddenOne' class="hidden">
+	<td><input type="text" name="flag[]" value="ADDNEW" class="flag"></td>
+  	<td style="text-align:center;"><input type="text" value="" name="SEISANCODE[]" style="width: 120px;"></td>
+  	<td style="text-align:center;"><input type="text" value="" name="SEISANMEISYOU[]" style="width: 130px;" /></td>
+	<td style="text-align:center;"><select name="JISHASOTOKUBUN[]" style="width: 75px;">
+			        <option selected="true" value="1">1:自社</option>
+			        <option value="2">2:外注</option>
+			        <option value="3">3:仕入</option>
+			    </select>
+		</td>
+   </tr>
+
+<% @models.each do |model| %>
+	<tr class="cssOne">
+		<td><input type="text" name="flag[]" value="" class="flag"></td>
+	  	<td style="text-align:center;"><input type="text" style="width: 120px;" value="<%=model.生産管轄工場コード%>" name="SEISANCODE[]" readonly="readonly" /></td>
+	  	<td style="text-align:center;"><input type="text" style="width: 130px;" value="<%=model.生産管轄工場名称%>" name="SEISANMEISYOU[]" /></td>
+		<td style="text-align:center;"><select style="width: 75px;" name="JISHASOTOKUBUN[]">
+		        <option <%= "selected='true'" if model.自社外注区分== '1' %> value="1">1:自社</option>
+		        <option  <%= "selected='true'" if model.自社外注区分== '2' %> value="2">2:外注</option>
+		        <option <%= "selected='true'" if model.自社外注区分== '3' %> value="3">3:仕入</option>
+		    </select>
+			</td>
+   </tr>
+<% end %>
+</tbody>
+</table>

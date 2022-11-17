@@ -1,0 +1,32 @@
+
+<p><label>親メニュー:</label><label style="padding-left: 10px;"><%=@parentmenucode%></label> <label style="padding-left: 10px;"> <%=@parentmenuname%></label></p>
+<p id="notice"><label class="message"><%= @message%></label></p>
+<%= link_to "追加", {:controller => "menumasuta", :action => "new", "screen" => "1", "tantogroupcode" => Publicfunction.pf_nvl_string(@tantogroupcode,""), "parentmenucode" => Publicfunction.pf_nvl_string(@parentmenucode, "")}, "target" => "_blank"%> |
+<%= link_to "データ出力", {:controller => "menumasuta", :action => "exportcsv",:format => :csv, :screen => "1", :tantogroupcode => Publicfunction.pf_nvl_string(@tantogroupcode,""), "parentmenucode" => Publicfunction.pf_nvl_string(@parentmenucode, "")}%>
+<table class="tableindex" cellspacing="0" style="width: 500px">
+	<thead>		
+	<tr>
+		<th>表示順序</th>
+		<th>メニューコード</th>
+		<th>メニュー名称</th>
+		<th></th>
+	</tr>		
+	</thead>
+<tbody>
+<% @menumasutaModels.each do |model| %>
+  <tr>
+  	<td><%= label_tag(model.表示順序, model.表示順序) %></td>
+  	<td><%= label_tag(model.メニューコード, model.メニューコード, :style => 'padding-left:10px;') %></td>
+  	<td><%= label_tag(model.メニュー名称, model.メニュー名称, :style => 'padding-left:10px;') %></td>
+    <td>
+    	<%= link_to "詳細", {:controller => "menumasuta", :action => "show", :id => model.担当グループコード + "," + model.メニューコード, "screen" => "1"}, "target" => "_blank"%> | 
+	    <%= link_to "編集", {:controller => "menumasuta", :action => "edit", :id => model.担当グループコード + "," + model.メニューコード, "screen" => "1"}, "target" => "_blank"%> |
+	    <%= link_to "複写", {:controller => "menumasuta", :action => "new", :id => model.担当グループコード + "," + model.メニューコード, "mode" => "1", "screen" => "1"}, {"target" => "_blank"}%> |
+	    <%= link_to '削除', url_for(:action => 'show', :controller => 'menumasuta', :id => model.担当グループコード + "," + model.メニューコード, "screen" => "1"), method: :delete, data: { confirm: 'このレコードを削除しますか？' } %>
+    </td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+<p></p>
+<%link_to "メニューリスト", :controller => "menu", :action => "index"%>

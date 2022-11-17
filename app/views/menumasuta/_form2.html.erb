@@ -1,0 +1,32 @@
+　　	<div class="field_editor">
+		<%=f.label("表示順序", "表示順序:", :class => "label_editor_require")%>
+		<%=f.text_field(:"表示順序", {:class => "text_editor", :size => "9", :maxlength => "6",  :value => @model.表示順序} )%>
+	</div>
+		
+	<div class="field_editor">
+		<%=f.label("画面プログラム", "画面:", :class => "label_editor_require")%>
+		 <% if @model.画面プログラム.nil? || @model.画面プログラム == "" || ( !@model.action_name.nil? && @model.action_name == "new" ) then  %>
+			<div id="gamenupdate">
+				<%= select_tag "input_form[画面プログラム]", options_from_collection_for_select(@gamenList, "画面プログラム", "画面名称", @model.画面プログラム), {"id" => "input_form_画面プログラム", :prompt => " "} %>
+			</div>
+		 <% else %>
+			<%=f.text_field(:"画面プログラム", {:class => "text_editor", :disabled =>"disabled", :size => "23", :maxlength => "20",  :value => @model.画面プログラム} )%>
+			<input name = "画面名称" id = "画面名称" class = "text_editor" size = "27" disabled = "disabled" value="<%=@model.画面名称%>">		 	
+		 <% end %>
+	</div>
+
+	<div class="field_editor">
+		<%=f.label("権限区分", "権限区分:", :class => "label_editor")%>
+		<%= f.select("権限区分", options_for_select([[' ', -1], ['0:使用不可', 0],['1:フル権限', 1],['2:参照のみ', 2]], Integer(  (@model.権限区分.nil? ? "0" : @model.権限区分 )  ) ) )%>
+	</div>
+	
+	<div class="field_editor">
+		<%=f.label("ボタン名称", "ボタン名称:", :class => "label_editor")%>
+		<%=f.text_field(:"ボタン名称", {:class => "text_editor", :size => "35", :maxlength => "30",  :value => @model.ボタン名称} )%>
+	</div>
+	
+  <div class="actions">
+    <% f.submit %>
+    <input type="submit" value="保存する" onclick="return chkMain_Menumasuta2();">
+  </div>
+

@@ -1,0 +1,21 @@
+<% title @pageTitle %>
+<h1>担当者別画面マスタに追加</h1>
+<p id="notice"><label class="message"><%= @model.message%></label></p>
+<%= form_for "input_form", :url => { :action => "create", :screen => @screen }, :html => {:class => "nifty_form" } do |f| %>
+	<%if @screen == "1" then%>
+		<input type="hidden" name="input_form[screen]" value="1" />
+		<input type="hidden" name="input_form[担当グループコード]" value="<%=@model.担当グループコード%>" />
+		<!--add by Longbd 2012/10/09-->
+		<input type="hidden" name="input_form[親メニューコード]" value="<%=@model.親メニューコード%>" />
+		<!--end add by Longbd 2012/10/09-->
+		<%= render 'form1', :f => f %>
+	<%else%>
+		<input type="hidden" name="input_form[screen]" value="2" />
+		<input type="hidden" name="input_form[担当グループコード]" value="<%=@model.担当グループコード%>" />
+		<input type="hidden" name="input_form[メニューコード]" value="<%=@model.メニューコード%>" />
+		<%= render 'form2', :f => f %>		
+	<%end%>
+<%end%>
+<p></p>
+<%= link_to 'メニューマスタリスト', {:controller => "menumasuta", :action => "index", "tantogroupcode" => @tantogroupcode} %> | 
+<%=link_to "メニューリスト", :controller => "menu", :action => "index"%>

@@ -1,0 +1,32 @@
+<% title @pageTitle%>
+<%# Add By HuyenNM 21-9-2012%>
+<script type="text/javascript">
+window.onload = function() {
+  document.getElementById('tantocode').focus();
+}
+</script>
+<%#AND ADD %>
+<div style="margin: 0 auto;width: 920px;">
+	<div style="width: 31em; margin: 5em auto;">
+		<form id="fr_login" action="login/logon" method="post" style="border: 0 none;margin: 0;padding: 0;">
+		<div style="margin:0;padding:0;display:inline"> </div>
+		<h1>ログイン</h1>
+		<div class="formbody">
+			<div style=" margin-left:30px; margin-bottom:20px; margin-right:10px; padding-bottom:5px;">	
+			<div>担当者コード</div>
+			<div class="editor-field"><input class="text" maxlength="10" id="tantocode" name="tantocode" style="width: 21em;" type="text" value="<%=@tantocode%>" placeholder="担当者コード">
+			</div>
+			<div>パスワード</div>
+			<div class="editor-field"><input class="text" maxlength="16" id="password" name="password" style="width: 21em;" type="password" placeholder="パスワード"></div>
+			<div style="color:red"><%=@message%></div>
+			<div><span>担当者コード、パスワードが分からない場合は、管理者に連絡してください。</span></div>
+
+			<div><input type="submit" class="button" min-width="150px" value="ログイン" onclick="return chkMain_login();" />
+				<input type="button" class="button" min-width="150px" value="ﾊﾟｽﾜｰﾄﾞ変更" onclick="go_changepassword();" />
+				<a id="gochangepassword" target="_blank" href="login/edit" style="display:none;">TEST</a>
+			</div>
+			</div>
+		</div>
+		</form>
+	</div>
+</div>

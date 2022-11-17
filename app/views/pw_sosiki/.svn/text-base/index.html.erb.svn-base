@@ -1,0 +1,58 @@
+<%= javascript_include_tag "pw_sosikigrid.js" %>
+<% title @pageTitle %>
+<h1>組織マスタリスト</h1>
+<%= form_for "input", :url => { :action => "index"}, :html => {:method => "GET" } do |f| %>
+<div>
+	<table>
+		<tr>
+			<td>組織名称曖昧: </td>
+			<td>
+				<input type="text" size="20" maxlength="20" value="" name="sosikimeisyo" id="sosikimeisyo"/>
+				<select name="searchoption" id="searchoption">				  
+				  <option value="1" selected='selected'>1:部分一致</option>
+				  <option value="2">2:前方一致</option>
+				  <option value="3">3:後方一致</option>
+				</select> 	
+			</td>
+		</tr>
+		<tr>
+			<td>工場組織: </td>
+			<td>
+				<select name="kobasosiki" id="kobasosiki" style="font-size : 12px;">				  
+				  <option value="" selected='selected'></option>
+				  <option value="0">0:工場組織でない</option>
+				  <option value="1">1:工場組織</option>
+				</select> 	
+			</td>
+		</tr>
+		
+		<tr>
+			<td>組織種別: </td>
+			<td>
+				<%= select_tag "sosikisyubetu", options_from_collection_for_select(@sosikisyubetuList, "組織種別コード", "組織種別名称", ""), {"id" => "sosikisyubetu", "class" => "selectlist", :prompt => " "}%>
+			</td>
+		</tr>
+		<tr>
+			<td>事業期:</td>
+			<td>
+				<table cellspacing="0">
+					<tr>
+						<td><label name="jigyokiName" id="jigyokiName"><%=@jigyokiname%></label></td>
+						<td style="padding-left: 200px">
+							<input type="button" " value="検　索 " id="searchForm"" style="width: 100px; height: 35px"/>
+							<input type="button" value="キャンセル " id="btnCancel" style="width: 100px; height: 35px"/>
+							<input type="button" value="O  K" id="btnOK" style="width: 100px; height: 35px" disabled="disabled"/>
+							<input type="button" value="閉じる " id="btnClose" style="width: 100px; height: 35px"/>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+</div>
+<p id="notice"><label class="message"><%= @message%></label></p>
+<input type="hidden" id="hidSOSEKICODE_CONTROLID" value='<%=@SOSEKICODE_CONTROLID%>' />
+<input type="hidden" id="hidSOSEKINAME_CONTROLID" value='<%=@SOSEKINAME_CONTROLID%>' />
+<input type="hidden" id="JIGYOUKI_VALUE" value='<%=@JIGYOUKI_VALUE%>' />
+<%= render 'gridForm', :f => f %>
+<%end%>

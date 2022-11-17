@@ -1,0 +1,9 @@
+<% title @pageTitle %>
+<h1>担当者マスタに追加</h1>
+<p id="notice"><label class="message"><%= @model.message%></label></p>
+<%= form_for "input_form", :url => { :action => "create" }, :html => {:class => "nifty_form" } do |f| %>
+<%= render 'form', :f => f %>
+<%end%>
+<p></p>
+<%= link_to '担当者マスタリスト', tantosyamasuta_path %> | 
+<%=link_to "メニューリスト", :controller => "menu", :action => "index"%>

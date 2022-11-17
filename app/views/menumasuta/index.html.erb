@@ -1,0 +1,232 @@
+<% title @pageTitle%>
+
+        
+<script type="text/javascript">
+
+$(function($) {
+	
+	$(document).ready(function() {
+       $('#divRight').block({ message: null });
+	});
+    
+	$('#btncancel').click(function() {
+        $('#divLeft').unblock();
+		$('#divRight').block({ message: null });
+	});
+	
+    $('#btnedit').click(function() {    	
+        $('#divRight').unblock();
+		$('#divLeft').block({ message: null });
+		$("#btnShowModal").removeAttr("disabled");
+	});
+  $("#btnShowModal").attr("disabled", "disabled");  
+});
+<%#Add by nmhuyen 24/10/2012%>
+        $(document).ready(function ()
+        {
+            $("#btnShowModal").click(function (e)
+            {
+            	  
+            	$('#divLeft').unblock();
+                ShowDialog(true);
+                e.preventDefault();
+            });
+
+            $("#btnClose").click(function (e)
+            {
+                HideDialog();
+                e.preventDefault();
+                $('#divLeft').block({ message: null });
+            });
+            $("#bClosed").click(function (e)
+            {
+                HideDialog();
+                e.preventDefault();
+                $('#divLeft').block({ message: null });
+            });
+        });
+ 
+        function exportData(tantogroupcode)
+        {
+	    	 var allVals = [];
+		     $('#brands :checked').each(function() {
+		       allVals.push($(this).val());
+		     });
+
+        	var　tantogroupcode1= '<%= @tantogroupcode %>'
+        	if (allVals.length == 2 && allVals[1] != 'undefined'){
+        	brand = "all"
+        	}
+        	else{
+        	brand = allVals[0]
+        	}     
+			HideDialog();
+			$('#divLeft').block({ message: null });	           
+			window.location.href = '/menumasuta/exportall.csv?ajax_export_type='+brand + '&tantogroupcode=' +tantogroupcode;
+        }
+        
+        function ShowDialog(modal)
+        {
+            $("#overlay").show();
+            $("#dialog").fadeIn(300);
+
+            if (modal)
+            {
+                $("#overlay").unbind("click");
+            }
+        }
+
+        function HideDialog()
+        {
+            $("#overlay").hide();
+            $("#dialog").fadeOut(300);
+        }           
+</script>
+<style type="text/css">
+       .web_dialog_overlay
+        {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            background: #000000;
+            opacity: .15;
+            filter: alpha(opacity=15);
+            -moz-opacity: .15;
+            z-index: 101;
+            display: none;
+        }
+        .web_dialog
+        {
+            display: none;
+            position: fixed;
+            width: 380px;
+            height: 200px;
+            top: 50%;
+            left: 50%;
+            margin-left: -190px;
+            margin-top: -100px;
+            background-color: #ffffff;
+            border: 2px solid #336699;
+            padding: 0px;
+            z-index: 102;
+            font-family: Verdana;
+            font-size: 10pt;
+        }
+        .web_dialog_title
+        {
+            border-bottom: solid 2px #336699;
+            background-color: #336699;
+            padding: 4px;
+            color: White;
+            font-weight:bold;
+        }
+        .web_dialog_title a
+        {
+            color: White;
+            text-decoration: none;
+        }
+        .align_right
+        {
+            text-align: right;
+        }
+        </style>
+
+<%#End Add %>
+<h1>メニューリスト</h1>
+<p></p>
+<table style="width: 100%">
+	<tr><td>
+		<form id="input" name="input" method="get">
+		<div style="width:100%; height:35px;">
+			<div style="float:left;">
+				<label class="label_editor_require">担当グループ:</label>
+				<%= select_tag "tantogroupcode", options_from_collection_for_select(@tantoGroupList, "担当グループコード", "ListName", @tantogroupcode), {"class" => "selectlist", :prompt => " "}%>
+			</div>
+			<div style="float:right;">
+				<div style="">
+					<input class="button" type="submit" id="btnsubmit" value="検　索" onclick="return chkHeader_Menumasuta();" />
+					<input class="button" type="button" id="btncancel" value="キャンセル"  />
+					 <input class="button" type="button" id="btnShowModal" value="データ出力" />
+				</div>
+			</div>
+		<div>
+		</form>
+
+	<%#Add by nmhuyen 17/10/2012%>
+							    
+    <div id="overlay" class="web_dialog_overlay"></div>
+    
+    <div id="dialog" class="web_dialog">
+   
+
+        <table style="width: 100%; border: 0px;" cellpadding="3" cellspacing="0">
+            <tr>
+                <td class="web_dialog_title">データ出力</td>
+                <td class="web_dialog_title align_right">
+                    <a href="#" id="btnClose">Close</a>
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+
+            <tr>
+                <td colspan="2" style="padding-left: 15px;">
+                    <div id="brands">
+                        <input id="brand1" name="brand" type="checkbox" checked="checked" value="menu" /> メニューマスタ
+                        <input id="brand2" name="brand" type="checkbox" checked="checked" value="group" /> グループ別画面マスタ 
+                        
+                    </div>
+                </td>
+
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align: center;">
+                <input type ="button" onclick="exportData('<%= h @tantogroupcode -%>')" value="OK" />
+                <input type ="button" value = "閉じる" id="bClosed"/>
+                </td>
+            </tr>
+        </table>
+   
+
+    </div>              
+	<%#End add %>	
+	</td></tr>
+	<tr><td>
+		<div style="width: 100%; height:768px;">
+			<div class="trees" style="width: 49%; height: 100%; border: 1px solid gray; float:left" id="divLeft">
+				<div>
+					<input class="button" type="submit" id="btnexpan" value="展　開"  onclick="return expandallselect()"/>
+					<input class="button" type="button" id="btnedit" value="修　正"  />
+				</div>
+				<div style="height: 94%;overflow:auto;">
+					<%= raw(@htmlString) %>
+				</div>
+			</div>
+			<div style="width: 49%; height: 100%; float: right; border: 1px solid gray;"  id="divRight">		
+				<div style="height: 60%; border: 1px solid gray;overflow:auto">
+					<div id="menuright1_ajax" style="padding-left: 10px;">
+						<%= render 'indexright1', :rightmodels => @menumasutaModels %>
+					</div>
+				</div>
+				<div style="height: 39%; border: 1px solid gray;overflow:auto; border-bottom: 0px;">
+					<div id="menuright2_ajax" style="padding-left: 10px;">
+						<%= render 'indexright2'%>
+					</div>
+				</div>
+			</div>
+		</div>		
+	</td></tr>
+</table>
+

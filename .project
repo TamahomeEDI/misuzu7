@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>misuzu7</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>com.aptana.ide.core.unifiedBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.radrails.rails.core.railsnature</nature>
+		<nature>com.aptana.ruby.core.rubynature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>app/assets/images/warning.gif</name>
+			<type>1</type>
+			<location>D:/PROJECTS/jupiter2012/SVN/NewPB_Project/Coding/Yayoi/reference/pb_10/sample/picture/warning.gif</location>
+		</link>
+	</linkedResources>
+</projectDescription>

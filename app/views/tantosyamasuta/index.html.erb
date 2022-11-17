@@ -1,0 +1,112 @@
+<%# encoding: utf-8 %>
+<% title @pageTitle %>
+<h1>担当グループマスタリスト</h1>
+<form id="input" name="input" method="get">
+<div>
+	<table>
+		<tr>
+			<td>担当グループ: </td>
+			<td>
+				<%= select_tag "tantogroupcode", options_from_collection_for_select(@tantoGroupList, "担当グループコード", "担当グループ名称", @tantogroupcode), {"class" => "selectlist", :prompt => " "}%>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>組織: </td>
+			<td>
+				<div id="sosiki_ajax">
+					<%= select_tag "input_form[組織コード]", options_from_collection_for_select(@sosikiList, "組織コード", "ListName", @sosikicode), {"id" => "input_form_組織コード", :prompt => " "} %>
+				</div>
+		</tr>
+		
+		<tr>
+			<td>担当者: </td>
+			<td>
+				<input type="text" size="12" maxlength="10" value="<%=@tantocode%>" name="tantocode" id="tantocode"/>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>担当者称曖昧:</td>
+			<td><input type="text" size="128" maxlength="128" value="<%=@searchtext%>" name="tantoname" id="tantoname"/>
+				<select name="searchoption" id="searchoption">				  
+				  <option value="1" <%= case @seachoption when "1" then "selected='selected'" end%>>1:部分一致</option>
+				  <option value="2" <%= case @seachoption when "2" then "selected='selected'" end%>>2:前方一致</option>
+				  <option value="3" <%= case @seachoption when "3" then "selected='selected'" end%>>3:後方一致</option>
+				</select> 				
+			</td>
+		</tr>
+		<tr>
+			<td>基準日:</td>
+			<td>
+				<input name="kijiundate" id="kijiundate" type="text" onchange="update_sosiki_list(this.value)" value="<%=@kinjundatestring%>" />
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2"><input type="submit" value="検　索 " style="width: 100px; height: 35px;"/></td>
+		</tr>
+	</table>
+</div>
+</form>
+<p id="notice"><label class="message"><%= @message%></label></p>
+<%= link_to "追加", {:controller => "tantosyamasuta", :action => "new"}, "target" => "_blank"%> |
+<%= link_to "データ出力", current_url(:format => :csv)%>
+<table class="tableindex2" cellspacing="0">
+	<thead>		
+		<tr>
+			<th>担当者コード</th>
+			<th colspan="2">担当者名称</th>
+			<th>パスワード</th>
+			<th colspan="2">組織</th>
+			<th colspan="2">ログインユーザー</th>
+			<th></th>
+		</tr>
+		<tr>
+			<th></th>
+			<th>開始日</th>
+			<th>終了日</th>
+			<th>パスワード更新日</th>
+			<th>社員区分</th>
+			<th>担当グループ</th>
+			<th colspan="2">フォーカス＿メニュー</th>
+			<th></th>
+		</tr>		
+	</thead>
+<tbody>
+<% @models.each do |model| %>
+  <tr>
+  	<td><%= label_tag(model.担当者コード, model.担当者コード) %></td>
+  	<td colspan="2"><%= label_tag(model.担当者名称, model.担当者名称, :style => 'padding-left:10px;') %></td>
+  	<td><%= label_tag(model.パスワード, model.パスワード, :style => 'padding-left:10px;') %></td>
+  	<td><%= label_tag(model.組織コード, model.組織コード, :style => 'padding-left:10px;') %></td>
+  	<td><%= label_tag(model.組織名称, model.組織名称, :style => 'padding-left:10px;') %></td>
+  	<td colspan="2"><%= label_tag(model.ログインユーザー, model.ログインユーザー, :style => 'padding-left:10px;') %></td>
+    <td rowspan="2">
+    	<%= link_to "詳細", {:controller => "tantosyamasuta", :action => "show", :id => model.担当者コード + "," + model.開始日.strftime("%Y-%m-%d")}, "target" => "_blank"%> | 
+	    <%= link_to "編集", {:controller => "tantosyamasuta", :action => "edit", :id => model.担当者コード + "," + model.開始日.strftime("%Y-%m-%d")}, "target" => "_blank"%> |
+	    <%= link_to "複写", {:controller => "tantosyamasuta", :action => "new", :id => model.担当者コード + "," + model.開始日.strftime("%Y-%m-%d"), "mode" => "1"}, {"target" => "_blank"}%> |
+	    <%= link_to '削除', url_for(:action => 'show', :controller => 'tantosyamasuta', :id => model.担当者コード + "," + model.開始日.strftime("%Y-%m-%d")), method: :delete, data: { confirm: 'このレコードを削除しますか？' } %>
+    </td>
+  </tr>
+  <tr>
+  	<td></td>
+  	<td><%= label_tag(model.開始日, model.開始日.strftime("%Y/%m/%d"), :style => 'padding-left:10px;') %></td>
+  	<td><%= label_tag(model.終了日, model.終了日.strftime("%Y/%m/%d"), :style => 'padding-left:10px;') %></td>
+	<td><%= label_tag(model.パスワード更新日, model.パスワード更新日.strftime("%Y/%m/%d"), :style => 'padding-left:10px;') %></td>
+	<td><%= label_tag(model.社員区分, model.社員区分, :style => 'padding-left:10px;') %></td>
+	<td><%= label_tag(model.担当グループ名称, model.担当グループ名称, :style => 'padding-left:10px;') %></td>
+	<td><%= label_tag(model.フォーカス_メニューコード, model.フォーカス_メニューコード, :style => 'padding-left:10px;') %></td>
+	<td><%= label_tag(model.メニュー名称, model.メニュー名称, :style => 'padding-left:10px;') %></td>
+	<td></td>
+  </tr>
+  <tr><td colspan="9"><hr style="color: blue;" /></td></tr>
+<% end %>
+</tbody>
+</table>
+<p></p>
+<%# Delete by nmhuyen 15/10/2012%>
+<%#<%=link_to "メニューリスト", :controller => "menu", :action => "index"%> 
+<%#End Del%>
+<%# Add by nmhuyen 15/10/2012 %>
+<%= link_to_function "メニューリスト", "history.back()" %>
+<%#End Add%>

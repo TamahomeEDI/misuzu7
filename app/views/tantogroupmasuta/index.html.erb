@@ -1,0 +1,35 @@
+<% title @pageTitle %>
+<h1>担当グループマスタ</h1>
+<p id="notice"><label class="message"><%= @message%></label></p>
+<%= link_to "追加", {:controller => "tantogroupmasuta", :action => "new"}, "target" => "_parent"%> |
+<%= link_to "データ出力", :controller => "tantogroupmasuta", :action => "index", :format => "csv"%>
+<table class="tableindex" cellspacing="0">
+	<thead>		
+	<tr>
+		<th>担当グループコード</th>
+		<th>担当グループ名称</th>
+		<th></th>
+	</tr>		
+	</thead>
+<tbody>
+<% @models.each do |model| %>
+  <tr>
+  	<td><%= label_tag(model.担当グループコード, model.担当グループコード) %></td>
+  	<td><%= label_tag(model.担当グループ名称, model.担当グループ名称) %></td>
+    <td>
+    	<%= link_to "詳細", {:controller => "tantogroupmasuta", :action => "show", :id => model.担当グループコード}, "target" => "_parent"%> | 
+	    <%= link_to "編集", {:controller => "tantogroupmasuta", :action => "edit", :id => model.担当グループコード}, "target" => "_parent" %> |
+	    <%= link_to "複写", {:controller => "tantogroupmasuta", :action => "new", :id => model.担当グループコード, :mode => "1"}, "target" => "_parent"%> |
+	    <%= link_to '削除', url_for(:action => 'show', :controller => 'tantogroupmasuta', :id => model.担当グループコード), method: :delete, data: { confirm: 'このレコードを削除しますか？' } %>
+    </td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+<p></p>
+<%# Delete by nmhuyen 15/10/2012%>
+<%#<%=link_to "メニューリスト", :controller => "menu", :action => "index"%> 
+<%#End Del%>
+<%# Add by nmhuyen 15/10/2012 %>
+<%= link_to_function "メニューリスト", "history.back()" %>
+<%#End Add%>

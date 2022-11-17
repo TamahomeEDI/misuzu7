@@ -1,0 +1,41 @@
+<p id="notice"><label class="message"><%= @message%></label></p>
+<%= link_to "追加", {:controller => "menumasuta", :action => "new", "screen" => "2", "tantogroupcode" => Publicfunction.pf_nvl_string(@tantogroupcode,""), "parentmenucode" => Publicfunction.pf_nvl_string(@parentmenucode, "")}, "target" => "_blank"%> |
+<%= link_to "データ出力", {:controller => "menumasuta", :action => "exportcsv", :format => :csv, "screen" => "2", :tantogroupcode => Publicfunction.pf_nvl_string(@tantogroupcode,""), "parentmenucode" => Publicfunction.pf_nvl_string(@parentmenucode, "")}%>
+<table class="tableindex" cellspacing="0" style="width: 500px">
+	<thead>		
+	<tr>
+		<th>表示順序</th>
+		<th colspan="2">画面</th>
+		<th></th>
+	</tr>
+	<tr>
+		<th></th>
+		<th>権限</th>
+		<th>ボタン名称</th>
+		<th></th>
+	</tr>		
+	</thead>
+<tbody>
+<% @tantogroupbetumodels.each do |model| %>
+	<tr>
+	  	<td><%= label_tag(model.表示順序, model.表示順序) %></td>
+	  	<td><%= label_tag(model.画面プログラム, model.画面プログラム, :style => 'padding-left:10px;') %></td>
+	  	<td><%= label_tag(model.画面名称, model.画面名称, :style => 'padding-left:10px;') %></td>
+		<td></td>
+	</tr>
+  <tr>
+  	<td></td>
+  	<td><%= label_tag(Tantogroupbetugamenmasuta.Get権限区分(model.権限区分), Tantogroupbetugamenmasuta.Get権限区分(model.権限区分), :style => 'padding-left:10px;') %></td>
+  	<td><%= label_tag(model.ボタン名称, model.ボタン名称, :style => 'padding-left:10px;') %></td>
+    <td>
+    	<%= link_to "詳細", {:controller => "menumasuta", :action => "show", :id => model.担当グループコード + "," + model.画面プログラム, "screen" => "2"}, "target" => "_blank"%> | 
+	    <%= link_to "編集", {:controller => "menumasuta", :action => "edit", :id => model.担当グループコード + "," + model.画面プログラム, "screen" => "2"}, "target" => "_blank"%> |
+	    <%= link_to "複写", {:controller => "menumasuta", :action => "new", :id => model.担当グループコード + "," + model.画面プログラム, "mode" => "1", "screen" => "2"}, {"target" => "_blank"}%> |
+	    <%= link_to '削除', url_for(:action => 'show', :controller => 'menumasuta', :id => model.担当グループコード + "," + model.画面プログラム, "screen" => "2"), method: :delete, data: { confirm: 'このレコードを削除しますか？' } %>
+    </td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+<p></p>
+<%link_to "メニューリスト", :controller => "menu", :action => "index"%>

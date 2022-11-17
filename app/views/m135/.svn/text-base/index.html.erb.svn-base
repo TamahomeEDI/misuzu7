@@ -1,0 +1,220 @@
+<% title @pageTitle %>
+<h1>生産管轄工場マスマス</h1>
+<script>
+	var curRow=-1;
+	function genColumsID()
+	{
+		var currentTime = new Date();
+		var year = currentTime.getFullYear().toString();
+		var month = (currentTime.getMonth()+1).toString();
+		var day = currentTime.getDate().toString();
+		var hours = currentTime.getHours().toString();
+		var minutes = currentTime.getMinutes().toString();
+		var seconds = currentTime.getSeconds().toString();
+		var returnDate=year+month+day+hours+minutes+seconds;
+	
+		return returnDate;
+	}
+	
+	$(document).ready(function(){
+	
+	//$('#TANTOMASUTA').tableScroll({height:285,width:950});
+	
+	var cssName=""
+	var deleteCode="";
+	$("#SEISANKANKATUKOUJOUMASUTA tbody tr").live('click', function() {
+		curRow = $(this)[0].rowIndex;
+		cssName = $(this)[0].className;
+
+		$('#SEISANKANKATUKOUJOUMASUTA tbody tr').css('background-color', '#FFFFFF');		
+		$('#SEISANKANKATUKOUJOUMASUTA tbody tr').eq(curRow-1).css('background-color', '#FFFF00');
+		
+		var flag=$('#SEISANKANKATUKOUJOUMASUTA tbody tr').eq(curRow-1).find("td:eq(0) input").val();
+		if(flag!='ADDNEW') 
+		$('#SEISANKANKATUKOUJOUMASUTA tbody tr').eq(curRow-1).find("td:eq(0) input").attr('value','UPDATE');
+	});
+	
+   	//Add Rows to table
+    $('#addRows').click(function() {
+       
+	   $('#SEISANKANKATUKOUJOUMASUTA tbody tr').css('background-color', '#FFFFFF');
+	   $('#SEISANKANKATUKOUJOUMASUTA tbody>tr:first').clone(true).insertAfter('#SEISANKANKATUKOUJOUMASUTA tbody>tr:last');
+       $('#SEISANKANKATUKOUJOUMASUTA tbody>tr:last').attr("id", "txtAddnew");
+       $('#SEISANKANKATUKOUJOUMASUTA tbody>tr:last').attr("class", "cssOne");
+	   $('#SEISANKANKATUKOUJOUMASUTA tbody>tr:last').css('background-color', '#FFFF00');
+	   
+       
+	   var lengthRows=$('#SEISANKANKATUKOUJOUMASUTA tbody tr').length;
+	   $('#SEISANKANKATUKOUJOUMASUTA tbody tr').eq(lengthRows-1).find("td:eq(1) input").focus();
+	   
+	   curRow = lengthRows;
+	   cssName = 'cssOne';
+	   
+
+	   
+	   //check validate
+		$('#SEISANKANKATUKOUJOUMASUTA tbody tr').eq(curRow-2).find("td:eq(1) input").attr("class","required");
+	   return false;
+	   
+	
+    });//End Add Rows
+    
+	//Insert Rows to table
+    $('#insertRows').click(function() {
+       if(curRow!=-1)
+       {
+	       
+	       var templateOne='<tr class="cssOne">'+ $('#hiddenOne').html()+'</tr>';
+	       
+		   $('#SEISANKANKATUKOUJOUMASUTA tbody tr').eq(curRow-2).after(templateOne);
+		   
+		   $('#SEISANKANKATUKOUJOUMASUTA tbody tr').eq(curRow-1).find("td:eq(1) input").focus();
+		   $('#SEISANKANKATUKOUJOUMASUTA tbody tr').css('background-color', '#FFFFFF');		   
+		   $('#SEISANKANKATUKOUJOUMASUTA tbody tr').eq(curRow-1).css('background-color', '#FFFF00');
+		   
+		   //check validate
+		   $('#SEISANKANKATUKOUJOUMASUTA tbody tr').eq(curRow-1).find("td:eq(1) input").attr("class","required");
+		   
+	   }
+	   
+	   return false;
+  
+    });//End Insert Rows
+  
+  
+    //copy Rows to table
+    $('#copyRows').click(function() {
+       if(curRow!=-1)
+       {
+		   
+	       var templateOne='<tr class="cssOne">'+ $('#SEISANKANKATUKOUJOUMASUTA tbody tr').eq(curRow-1).html()+'</tr>';
+	      
+		   $('#SEISANKANKATUKOUJOUMASUTA tbody tr').eq(curRow-1).after(templateOne);
+	  
+		   $('#SEISANKANKATUKOUJOUMASUTA tbody tr').css('background-color', '#FFFFFF');
+		   $('#SEISANKANKATUKOUJOUMASUTA tbody tr').eq(curRow-1).find("td:eq(1) input").removeAttr("readonly");
+		   $('#SEISANKANKATUKOUJOUMASUTA tbody tr').eq(curRow-1).find("td:eq(1) input").select();
+		   $('#SEISANKANKATUKOUJOUMASUTA tbody tr').eq(curRow-1).css('background-color', '#FFFF00');
+		   var Colum7ID="COPY_"+genColumsID()+curRow;
+		   $('#SEISANKANKATUKOUJOUMASUTA tbody tr').eq(curRow-1).find("td:eq(0) input").attr('value','ADDNEW');		  
+		   $('#SEISANKANKATUKOUJOUMASUTA tbody tr').eq(curRow-1).find("td:eq(3) select").attr("id", Colum7ID);
+		   
+		   //check validate
+		   $('#SEISANKANKATUKOUJOUMASUTA tbody tr').eq(curRow-1).find("td:eq(1) input").attr("class","required");
+		}
+  		return false;
+  	});//End copy Rows
+   	
+   	
+    //Delete Checked Rows
+    $('#delRows').click(function() {
+         
+         if(curRow!=-1)
+		 {
+			 var countDelete=0;			
+			 var tempRowIndex=curRow;
+			 $('#SEISANKANKATUKOUJOUMASUTA tbody>tr').each(function() {
+				 if($(this)[0].rowIndex==curRow){
+					 if(countDelete==0)
+					 {
+						 if (confirm("削除しますか?")) {
+							 
+							var flag=$('#SEISANKANKATUKOUJOUMASUTA tbody tr').eq(curRow-1).find("td:eq(0) input").val();
+							var seisanCode=$('#SEISANKANKATUKOUJOUMASUTA tbody tr').eq(curRow-1).find("td:eq(1) input").val();
+							if((flag=='UPDATE') || (flag=='')) 
+							deleteCode=deleteCode + "," + seisanCode;
+							$(this).remove();
+							 countDelete+=1;
+							 if(countDelete==1) curRow=-1;
+						 }	
+					 }
+					 else
+					 {
+						 $(this).remove();
+						 countDelete+=1;
+						 if(countDelete==1) curRow=-1;
+					 }
+				 }
+					   
+			 });
+			 curRow=tempRowIndex;
+			 var lengthRows=$('#SEISANKANKATUKOUJOUMASUTA tbody tr').length;
+			 if(lengthRows<curRow) curRow=lengthRows;
+			 if(lengthRows<2) curRow=-1;
+			 else
+			 {
+				 $('#SEISANKANKATUKOUJOUMASUTA tbody tr').css('background-color', '#FFFFFF');
+				 $('#SEISANKANKATUKOUJOUMASUTA tbody tr').eq(curRow-1).css('background-color', '#FFFF00');				 
+			 }
+		 }
+		 return false;
+     });//End Delete Checked Rows
+     
+     
+     
+     ///////////////////////FORM///////////////////////////
+	
+	$("#btnUpdate").click(function() {
+		
+		$("#deleteCode").attr('value',deleteCode);
+		var returnValue=true;
+		$("#SEISANKANKATUKOUJOUMASUTA tbody>tr td input.required").each(function(){
+            if($(this).val().length == 0)
+            {
+               alert('担当者コードが必要です。');
+               $(this).focus(); 
+               returnValue=false;
+               return false;
+            }
+        });
+		
+		return returnValue;
+	});
+	
+	$("#btnExportCSV").click(function() {
+		window.location.href='/m135?action=index&controller=m135&format=csv';
+	});
+	
+	$("#btnClose").click(function() {
+		window.close();
+	});
+	
+	
+     
+});
+</script>
+
+<style>
+.hidden
+{
+	display: none;
+}
+.flag
+{
+	display: none;
+}
+</style>
+
+<%= form_for "input", :url => { :action => "index"}, :html => {:method => "POST" } do |f| %>
+<div>
+				<table cellspacing="0">
+					<tr>
+						<td style="padding-left: 200px">
+							<input class="button" type="submit"" " value="更　新 " id="btnUpdate" style="width: 100px; height: 35px"/>
+							<input class="button" type="button"" value="データ出力 " id="btnExportCSV" style="width: 100px; height: 35px"/>
+							<input class="button" type="button" value="閉じる " id="btnClose" style="width: 100px; height: 35px"/>
+						</td>
+					</tr>
+				</table>			
+</div>
+<p id="notice"><label class="message"><%= @message%></label></p>
+<div style="padding-bottom: 5px">
+	<input class="button" type="submit" value="挿入" id="insertRows" style="width: 100px; height: 35px"/>
+	<input class="button" type="submit" value="追加 " id="addRows" style="width: 100px; height: 35px"/>
+	<input class="button" type="submit" value="複写 " id="copyRows" style="width: 100px; height: 35px"/>
+	<input class="button" type="submit" value="削除 " id="delRows" style="width: 100px; height: 35px"/>
+</div>
+<input type="hidden" value="" id="deleteCode" name="deleteCode">
+<%= render 'gridForm', :f => f %>
+<%end%>
+

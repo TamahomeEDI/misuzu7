@@ -1,0 +1,578 @@
+
+
+Started GET "/seisankankatukoujoumasuta" for 127.0.0.1 at 2012-08-16 16:29:07 +0700
+Connecting to database specified by database.yml
+Processing by SeisankankatukoujoumasutaController#index as HTML
+  Rendered seisankankatukoujoumasuta/index.html.erb within layouts/application (78.1ms)
+Compiled seisankankatukoujoumasuta.css  (125ms)  (pid 5872)
+Compiled application.css  (234ms)  (pid 5872)
+Compiled jquery.js  (15ms)  (pid 5872)
+Compiled jquery_ujs.js  (0ms)  (pid 5872)
+Compiled seisankankatukoujoumasuta.js  (1374ms)  (pid 5872)
+Compiled application.js  (2093ms)  (pid 5872)
+Completed 200 OK in 3672ms (Views: 3671.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-08-16 16:29:19 +0700
+Served asset /application.css - 200 OK (15ms)
+
+
+Started GET "/assets/seisankankatukoujoumasuta.css?body=1" for 127.0.0.1 at 2012-08-16 16:29:19 +0700
+Served asset /seisankankatukoujoumasuta.css - 304 Not Modified (15ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-08-16 16:29:19 +0700
+Served asset /jquery.js - 304 Not Modified (187ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-08-16 16:29:19 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (15ms)
+
+
+Started GET "/assets/seisankankatukoujoumasuta.js?body=1" for 127.0.0.1 at 2012-08-16 16:29:20 +0700
+Served asset /seisankankatukoujoumasuta.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-08-16 16:29:20 +0700
+Served asset /application.js - 304 Not Modified (218ms)
+
+
+Started GET "/seisankankatukoujoumasuta/1" for 127.0.0.1 at 2012-08-16 16:30:12 +0700
+Processing by SeisankankatukoujoumasutaController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendered seisankankatukoujoumasuta/show.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 16ms (Views: 15.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-08-16 16:30:12 +0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/seisankankatukoujoumasuta.css?body=1" for 127.0.0.1 at 2012-08-16 16:30:12 +0700
+Served asset /seisankankatukoujoumasuta.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-08-16 16:30:13 +0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-08-16 16:30:13 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/seisankankatukoujoumasuta.js?body=1" for 127.0.0.1 at 2012-08-16 16:30:13 +0700
+Served asset /seisankankatukoujoumasuta.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-08-16 16:30:13 +0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/seisankankatukoujoumasuta/new" for 127.0.0.1 at 2012-08-16 16:30:53 +0700
+Processing by SeisankankatukoujoumasutaController#new as HTML
+  Rendered seisankankatukoujoumasuta/new.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 31ms (Views: 31.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-08-16 16:30:53 +0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/seisankankatukoujoumasuta.js?body=1" for 127.0.0.1 at 2012-08-16 16:30:53 +0700
+Served asset /seisankankatukoujoumasuta.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/seisankankatukoujoumasuta.css?body=1" for 127.0.0.1 at 2012-08-16 16:30:53 +0700
+Served asset /seisankankatukoujoumasuta.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-08-16 16:30:53 +0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-08-16 16:30:53 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-08-16 16:30:53 +0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/seisankankatukoujoumasuta" for 127.0.0.1 at 2012-08-16 16:50:20 +0700
+Connecting to database specified by database.yml
+Processing by SeisankankatukoujoumasutaController#index as HTML
+  Rendered seisankankatukoujoumasuta/index.html.erb within layouts/application (171.9ms)
+Completed 200 OK in 812ms (Views: 656.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-08-16 16:50:30 +0700
+Served asset /application.css - 304 Not Modified (15ms)
+
+
+Started GET "/assets/seisankankatukoujoumasuta.css?body=1" for 127.0.0.1 at 2012-08-16 16:50:30 +0700
+Served asset /seisankankatukoujoumasuta.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-08-16 16:50:30 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (15ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-08-16 16:50:30 +0700
+Served asset /jquery.js - 304 Not Modified (125ms)
+
+
+Started GET "/assets/seisankankatukoujoumasuta.js?body=1" for 127.0.0.1 at 2012-08-16 16:50:31 +0700
+Served asset /seisankankatukoujoumasuta.js - 304 Not Modified (15ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-08-16 16:50:31 +0700
+Served asset /application.js - 304 Not Modified (187ms)
+
+
+Started GET "/seisankankatukoujoumasuta" for 127.0.0.1 at 2012-08-16 16:59:59 +0700
+Connecting to database specified by database.yml
+Processing by SeisankankatukoujoumasutaController#index as HTML
+  Rendered seisankankatukoujoumasuta/index.html.erb within layouts/application (93.8ms)
+Compiled application.css  (0ms)  (pid 4692)
+Completed 200 OK in 906ms (Views: 765.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-08-16 17:00:09 +0700
+Served asset /application.css - 200 OK (31ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-08-16 17:00:09 +0700
+Served asset /jquery.js - 304 Not Modified (187ms)
+
+
+Started GET "/assets/seisankankatukoujoumasuta.css?body=1" for 127.0.0.1 at 2012-08-16 17:00:10 +0700
+Served asset /seisankankatukoujoumasuta.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-08-16 17:00:10 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (15ms)
+
+
+Started GET "/assets/seisankankatukoujoumasuta.js?body=1" for 127.0.0.1 at 2012-08-16 17:00:10 +0700
+Served asset /seisankankatukoujoumasuta.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-08-16 17:00:10 +0700
+Served asset /application.js - 304 Not Modified (171ms)
+
+
+Started GET "/seisankankatukoujoumasuta/001" for 127.0.0.1 at 2012-08-16 17:10:23 +0700
+Processing by SeisankankatukoujoumasutaController#show as HTML
+  Parameters: {"id"=>"001"}
+  Rendered seisankankatukoujoumasuta/show.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 16ms (Views: 15.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-08-16 17:10:23 +0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/seisankankatukoujoumasuta.css?body=1" for 127.0.0.1 at 2012-08-16 17:10:23 +0700
+Served asset /seisankankatukoujoumasuta.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-08-16 17:10:24 +0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-08-16 17:10:24 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/seisankankatukoujoumasuta.js?body=1" for 127.0.0.1 at 2012-08-16 17:10:24 +0700
+Served asset /seisankankatukoujoumasuta.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-08-16 17:10:24 +0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/seisankankatukoujoumasuta/001" for 127.0.0.1 at 2012-08-16 17:14:03 +0700
+Processing by SeisankankatukoujoumasutaController#show as HTML
+  Parameters: {"id"=>"001"}
+  Rendered seisankankatukoujoumasuta/show.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 2406ms (Views: 15.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/seisankankatukoujoumasuta.css?body=1" for 127.0.0.1 at 2012-08-16 17:14:06 +0700
+Served asset /seisankankatukoujoumasuta.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-08-16 17:14:06 +0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-08-16 17:14:06 +0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-08-16 17:14:06 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/seisankankatukoujoumasuta.js?body=1" for 127.0.0.1 at 2012-08-16 17:14:06 +0700
+Served asset /seisankankatukoujoumasuta.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-08-16 17:14:06 +0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/seisankankatukoujoumasuta" for 127.0.0.1 at 2012-08-16 17:17:26 +0700
+Processing by SeisankankatukoujoumasutaController#index as HTML
+  Rendered seisankankatukoujoumasuta/index.html.erb within layouts/application (31.2ms)
+Completed 200 OK in 2469ms (Views: 46.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-08-16 17:17:29 +0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/seisankankatukoujoumasuta.css?body=1" for 127.0.0.1 at 2012-08-16 17:17:29 +0700
+Served asset /seisankankatukoujoumasuta.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-08-16 17:17:29 +0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/seisankankatukoujoumasuta.js?body=1" for 127.0.0.1 at 2012-08-16 17:17:29 +0700
+Served asset /seisankankatukoujoumasuta.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-08-16 17:17:29 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-08-16 17:17:29 +0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/seisankankatukoujoumasuta/001/edit" for 127.0.0.1 at 2012-08-16 17:17:32 +0700
+Processing by SeisankankatukoujoumasutaController#edit as HTML
+  Parameters: {"id"=>"001"}
+  Rendered seisankankatukoujoumasuta/_form.html.erb (125.0ms)
+  Rendered seisankankatukoujoumasuta/edit.html.erb within layouts/application (187.5ms)
+Completed 200 OK in 484ms (Views: 250.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-08-16 17:17:33 +0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/seisankankatukoujoumasuta.css?body=1" for 127.0.0.1 at 2012-08-16 17:17:33 +0700
+Served asset /seisankankatukoujoumasuta.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-08-16 17:17:33 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-08-16 17:17:33 +0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/seisankankatukoujoumasuta.js?body=1" for 127.0.0.1 at 2012-08-16 17:17:33 +0700
+Served asset /seisankankatukoujoumasuta.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-08-16 17:17:33 +0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started PUT "/seisankankatukoujoumasuta/001" for 127.0.0.1 at 2012-08-16 17:17:35 +0700
+Processing by SeisankankatukoujoumasutaController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dWmcZ1/LiPGE707bMNTFvbivfC9ImNsHHraQxLNy3o0=", "input_form"=>{"生産管轄工場名称"=>"てすと０１ー変換", "自社外注区分"=>"3"}, "commit"=>"保存する", "id"=>"001"}
+Redirected to http://localhost:3000/seisankankatukoujoumasuta/001?notice=%E6%9B%B4%E6%96%B0%E3%81%AB%E6%88%90%E5%8A%9F%E3%81%97%E3%81%BE%E3%81%9F.
+Completed 302 Found in 266ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/seisankankatukoujoumasuta/001?notice=%E6%9B%B4%E6%96%B0%E3%81%AB%E6%88%90%E5%8A%9F%E3%81%97%E3%81%BE%E3%81%9F." for 127.0.0.1 at 2012-08-16 17:17:36 +0700
+Processing by SeisankankatukoujoumasutaController#show as HTML
+  Parameters: {"notice"=>"更新に成功しまた.", "id"=>"001"}
+  Rendered seisankankatukoujoumasuta/show.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 234ms (Views: 15.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-08-16 17:17:36 +0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/seisankankatukoujoumasuta.css?body=1" for 127.0.0.1 at 2012-08-16 17:17:36 +0700
+Served asset /seisankankatukoujoumasuta.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-08-16 17:17:36 +0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-08-16 17:17:36 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/seisankankatukoujoumasuta.js?body=1" for 127.0.0.1 at 2012-08-16 17:17:36 +0700
+Served asset /seisankankatukoujoumasuta.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-08-16 17:17:36 +0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/seisankankatukoujoumasuta" for 127.0.0.1 at 2012-08-16 17:17:39 +0700
+Processing by SeisankankatukoujoumasutaController#index as HTML
+  Rendered seisankankatukoujoumasuta/index.html.erb within layouts/application (31.2ms)
+Completed 200 OK in 250ms (Views: 62.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-08-16 17:17:39 +0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/seisankankatukoujoumasuta.css?body=1" for 127.0.0.1 at 2012-08-16 17:17:39 +0700
+Served asset /seisankankatukoujoumasuta.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-08-16 17:17:39 +0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-08-16 17:17:39 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/seisankankatukoujoumasuta.js?body=1" for 127.0.0.1 at 2012-08-16 17:17:39 +0700
+Served asset /seisankankatukoujoumasuta.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-08-16 17:17:39 +0700
+Served asset /application.js - 304 Not Modified (15ms)
+
+
+Started GET "/seisankankatukoujoumasuta/001" for 127.0.0.1 at 2012-08-16 17:17:43 +0700
+Processing by SeisankankatukoujoumasutaController#show as HTML
+  Parameters: {"id"=>"001"}
+  Rendered seisankankatukoujoumasuta/show.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 188ms (Views: 31.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-08-16 17:17:43 +0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/seisankankatukoujoumasuta.css?body=1" for 127.0.0.1 at 2012-08-16 17:17:43 +0700
+Served asset /seisankankatukoujoumasuta.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-08-16 17:17:43 +0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-08-16 17:17:43 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/seisankankatukoujoumasuta.js?body=1" for 127.0.0.1 at 2012-08-16 17:17:43 +0700
+Served asset /seisankankatukoujoumasuta.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-08-16 17:17:43 +0700
+Served asset /application.js - 304 Not Modified (15ms)
+
+
+Started GET "/seisankankatukoujoumasuta/001/edit" for 127.0.0.1 at 2012-08-16 17:17:44 +0700
+Processing by SeisankankatukoujoumasutaController#edit as HTML
+  Parameters: {"id"=>"001"}
+  Rendered seisankankatukoujoumasuta/_form.html.erb (0.0ms)
+  Rendered seisankankatukoujoumasuta/edit.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 234ms (Views: 62.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/seisankankatukoujoumasuta.css?body=1" for 127.0.0.1 at 2012-08-16 17:17:45 +0700
+Served asset /seisankankatukoujoumasuta.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-08-16 17:17:45 +0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-08-16 17:17:45 +0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-08-16 17:17:45 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/seisankankatukoujoumasuta.js?body=1" for 127.0.0.1 at 2012-08-16 17:17:45 +0700
+Served asset /seisankankatukoujoumasuta.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-08-16 17:17:45 +0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started PUT "/seisankankatukoujoumasuta/001" for 127.0.0.1 at 2012-08-16 17:17:48 +0700
+Processing by SeisankankatukoujoumasutaController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dWmcZ1/LiPGE707bMNTFvbivfC9ImNsHHraQxLNy3o0=", "input_form"=>{"生産管轄工場名称"=>"てすと０１ー変換", "自社外注区分"=>"2"}, "commit"=>"保存する", "id"=>"001"}
+Redirected to http://localhost:3000/seisankankatukoujoumasuta/001?notice=%E6%9B%B4%E6%96%B0%E3%81%AB%E6%88%90%E5%8A%9F%E3%81%97%E3%81%BE%E3%81%9F.
+Completed 302 Found in 297ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/seisankankatukoujoumasuta/001?notice=%E6%9B%B4%E6%96%B0%E3%81%AB%E6%88%90%E5%8A%9F%E3%81%97%E3%81%BE%E3%81%9F." for 127.0.0.1 at 2012-08-16 17:17:48 +0700
+Processing by SeisankankatukoujoumasutaController#show as HTML
+  Parameters: {"notice"=>"更新に成功しまた.", "id"=>"001"}
+  Rendered seisankankatukoujoumasuta/show.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 203ms (Views: 15.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-08-16 17:17:48 +0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/seisankankatukoujoumasuta.css?body=1" for 127.0.0.1 at 2012-08-16 17:17:48 +0700
+Served asset /seisankankatukoujoumasuta.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-08-16 17:17:49 +0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-08-16 17:17:49 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/seisankankatukoujoumasuta.js?body=1" for 127.0.0.1 at 2012-08-16 17:17:49 +0700
+Served asset /seisankankatukoujoumasuta.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-08-16 17:17:49 +0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/seisankankatukoujoumasuta/001?notice=%E6%9B%B4%E6%96%B0%E3%81%AB%E6%88%90%E5%8A%9F%E3%81%97%E3%81%BE%E3%81%9F." for 127.0.0.1 at 2012-08-16 17:18:27 +0700
+Processing by SeisankankatukoujoumasutaController#show as HTML
+  Parameters: {"notice"=>"更新に成功しまた.", "id"=>"001"}
+  Rendered seisankankatukoujoumasuta/show.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 2406ms (Views: 15.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-08-16 17:18:29 +0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/seisankankatukoujoumasuta.css?body=1" for 127.0.0.1 at 2012-08-16 17:18:29 +0700
+Served asset /seisankankatukoujoumasuta.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-08-16 17:18:29 +0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-08-16 17:18:29 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/seisankankatukoujoumasuta.js?body=1" for 127.0.0.1 at 2012-08-16 17:18:29 +0700
+Served asset /seisankankatukoujoumasuta.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-08-16 17:18:29 +0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/seisankankatukoujoumasuta/001?notice=%E6%9B%B4%E6%96%B0%E3%81%AB%E6%88%90%E5%8A%9F%E3%81%97%E3%81%BE%E3%81%9F." for 127.0.0.1 at 2012-08-16 17:18:55 +0700
+Processing by SeisankankatukoujoumasutaController#show as HTML
+  Parameters: {"notice"=>"更新に成功しまた.", "id"=>"001"}
+  Rendered seisankankatukoujoumasuta/show.html.erb within layouts/application (0.0ms)
+Compiled application.css  (0ms)  (pid 4692)
+Completed 200 OK in 406ms (Views: 250.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-08-16 17:18:55 +0700
+Served asset /application.css - 200 OK (46ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-08-16 17:18:55 +0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-08-16 17:18:55 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/seisankankatukoujoumasuta.css?body=1" for 127.0.0.1 at 2012-08-16 17:18:55 +0700
+Served asset /seisankankatukoujoumasuta.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/seisankankatukoujoumasuta.js?body=1" for 127.0.0.1 at 2012-08-16 17:18:56 +0700
+Served asset /seisankankatukoujoumasuta.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-08-16 17:18:56 +0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/seisankankatukoujoumasuta/001" for 127.0.0.1 at 2012-08-16 17:25:10 +0700
+Processing by SeisankankatukoujoumasutaController#show as HTML
+  Parameters: {"id"=>"001"}
+  Rendered seisankankatukoujoumasuta/show.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 2453ms (Views: 31.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-08-16 17:25:13 +0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-08-16 17:25:13 +0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/seisankankatukoujoumasuta.css?body=1" for 127.0.0.1 at 2012-08-16 17:25:13 +0700
+Served asset /seisankankatukoujoumasuta.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-08-16 17:25:13 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/seisankankatukoujoumasuta.js?body=1" for 127.0.0.1 at 2012-08-16 17:25:13 +0700
+Served asset /seisankankatukoujoumasuta.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-08-16 17:25:13 +0700
+Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/seisankankatukoujoumasuta" for 127.0.0.1 at 2012-08-16 17:25:15 +0700
+Processing by SeisankankatukoujoumasutaController#index as HTML
+  Rendered seisankankatukoujoumasuta/index.html.erb within layouts/application (93.8ms)
+Completed 200 OK in 297ms (Views: 125.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-08-16 17:25:16 +0700
+Served asset /application.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/seisankankatukoujoumasuta.css?body=1" for 127.0.0.1 at 2012-08-16 17:25:16 +0700
+Served asset /seisankankatukoujoumasuta.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-08-16 17:25:16 +0700
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-08-16 17:25:16 +0700
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/seisankankatukoujoumasuta.js?body=1" for 127.0.0.1 at 2012-08-16 17:25:16 +0700
+Served asset /seisankankatukoujoumasuta.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-08-16 17:25:16 +0700
+Served asset /application.js - 304 Not Modified (0ms)

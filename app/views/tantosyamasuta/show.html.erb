@@ -1,0 +1,59 @@
+<% title @pageTitle %>
+<p id="notice"><label class="message"><%= @model.message%></label></p>
+	<div class="field_editor">
+		<%=label_tag("担当者コード", "担当者:", :class => "label_editor")%>	
+		<input name = "担当者コード" id = "担当者コード" class = "text_editor" size = "15" disabled = "disabled" value="<%=@model.担当者コード%>">
+		<input name = "担当者名称" id = "担当者名称" class = "text_editor" size = "27" disabled = "disabled" value="<%=@model.担当者名称%>">
+	</div>
+
+	<div class="field_editor">
+		<%=label_tag("開始日", "開始日", :class => "label_editor")%>
+		<input name = "開始日" id = "開始日" class = "text_editor" size = "15" disabled = "disabled" value="<%=@model.開始日.strftime("%Y/%m/%d")%>">
+	</div>
+	
+	<div class="field_editor">
+		<%=label_tag("終了日", "終了日:", :class => "label_editor")%>
+		<input name = "終了日" id = "終了日" class = "text_editor" size = "15" disabled = "disabled" value="<%=@model.終了日.strftime("%Y/%m/%d")%>">
+	</div>
+	
+	<div class="field_editor">
+		<%=label_tag("パスワード", "パスワード:", :class => "label_editor")%>
+		<input name = "パスワード" id = "パスワード" class = "text_editor" size = "15" disabled = "disabled" value="<%=@model.パスワード%>">
+	</div>
+
+	<div class="field_editor">
+		<%=label_tag("パスワード更新日", "パスワード更新日:", :class => "label_editor")%>
+		<input name = "パスワード更新日" id = "パスワード更新日" class = "text_editor" size = "15" disabled = "disabled" value="<%=@model.パスワード更新日.strftime("%Y/%m/%d")%>">
+	</div>
+
+	<div class="field_editor">
+		<%=label_tag("組織", "組織:", :class => "label_editor")%>
+		<input name = "組織コード" id = "組織コード" class = "text_editor" size = "15" disabled = "disabled" value="<%=@model.組織コード%>">
+		<input name = "組織名称" id = "組織名称" class = "text_editor" size = "27" disabled = "disabled" value="<%=@model.組織名称%>">
+	</div>
+
+	<div class="field_editor">
+		<%=label_tag("社員区分", "社員区分:", :class => "label_editor")%>
+		<input name = "社員区分" id = "社員区分" class = "text_editor" size = "15" disabled = "disabled" value="<%=@model.社員区分%>">
+	</div>
+
+	<div class="field_editor">
+		<%=label_tag("担当グループ", "担当グループ:", :class => "label_editor")%>
+		<input name = "担当グループコード" id = "担当グループコード" class = "text_editor" size = "15" disabled = "disabled" value="<%=@model.担当グループコード%>">
+		<input name = "担当グループ名称" id = "担当グループ名称" class = "text_editor" size = "27" disabled = "disabled" value="<%=@model.担当グループ名称%>">
+	</div>
+
+	<div class="field_editor">
+		<%=label_tag("ログインユーザー", "ログインユーザー:", :class => "label_editor")%>
+		<input name = "ログインユーザー" id = "ログインユーザー" class = "text_editor" size = "37" disabled = "disabled" value="<%=@model.ログインユーザー%>">
+	</div>
+		
+	<div class="field_editor">
+		<%=label_tag("フォーカス_メニュー", "フォーカス_メニュー:", :class => "label_editor")%>
+		<input name = "フォーカス_メニューコード" id = "フォーカス_メニューコード" class = "text_editor" size = "15" disabled = "disabled" value="<%=@model.フォーカス_メニューコード%>">
+		<input name = "メニュー名称" id = "メニュー名称" class = "text_editor" size = "27" disabled = "disabled" value="<%=Publicfunction.pf_nvl_string(@model.メニュー名称, '')%>">
+	</div>	
+<p></p>
+<%= link_to "編集", :controller => "tantosyamasuta", :action => "edit", :id => @model.担当者コード + "," + @model.開始日.strftime("%Y-%m-%d")%> |
+<%= link_to '担当者マスタリスト', tantosyamasuta_path %> | 
+<%=link_to "メニューリスト", :controller => "menu", :action => "index"%>

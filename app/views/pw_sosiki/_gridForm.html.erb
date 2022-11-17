@@ -1,0 +1,39 @@
+<table cellspacing="0" cellpadding="0" class="tableindex2" id="pw_sosiki">
+	<thead>
+		<tr>
+			<th>組織コード</th>
+			<th>組織名称</th>
+			<th>組織種別</th>
+			<th>組織種別名称</th>
+			<th>親組織</th>
+			<th>親組織名称</th>
+		</tr>
+	</thead>
+<tbody>
+<% @i=-1%>
+<%if(!@models.nil?)%>
+	<% @models.each do |model| %>
+	<% @i+=1 %>
+	<% if(@i%2)==1 %>
+		<tr ondblclick="setReferentValue('<%=model.組織コード%>','<%=model.組織名称%>');">
+			<td ><label name="SOSIKICODE[]" class="referent"><%=model.組織コード%></label></td>
+		  	<td ><label name="SOSIKINAME[]" class="referent"><%=model.組織名称%></label></td>
+		  	<td><label name="SOSIKISYUBETU[]" class="referent"><%=model.組織種別コード%></label></td>
+		  	<td><label name="SOSIKISYUBETUNAME[]" class="referent"><%=model.組織種別名称%></label></td>
+		  	<td><label name="OYASOSIKI[]" class="referent"><%=model.親組織コード%></label></td>
+		  	<td><label name="OYASOSIKINAME[]" class="referent"><%=model.親組織名称%></label></td>
+		</tr>
+	<% else %>
+		<tr style="background-color: #E9F1F4" ondblclick="setReferentValue('<%=model.組織コード%>','<%=model.組織名称%>');">
+			<td ><label name="SOSIKICODE[]" class="referent"><%=model.組織コード%></label></td>
+		  	<td ><label name="SOSIKINAME[]" class="referent"><%=model.組織名称%></label></td>
+		  	<td><label name="SOSIKISYUBETU[]" class="referent"><%=model.組織種別コード%></label></td>
+		  	<td><label name="SOSIKISYUBETUNAME[]" class="referent"><%=model.組織種別名称%></label></td>
+		  	<td><label name="OYASOSIKI[]" class="referent"><%=model.親組織コード%></label></td>
+		  	<td><label name="OYASOSIKINAME[]" class="referent"><%=model.親組織名称%></label></td>
+		</tr>
+	<% end %>
+	<% end %>
+<% end %>
+</tbody>
+</table>

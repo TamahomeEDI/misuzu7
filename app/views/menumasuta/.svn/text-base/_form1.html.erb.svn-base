@@ -1,0 +1,17 @@
+　　	<div class="field_editor">
+		<%=f.label("表示順序", "表示順序:", :class => "label_editor_require")%>
+		<%=f.text_field(:"表示順序", {:class => "text_editor", :size => "9", :maxlength => "6",  :value => @model.表示順序} )%>
+	</div>
+		
+	<div class="field_editor">
+		<%=f.label("メニュー", "メニュー:", :class => "label_editor_require")%>
+		<%=f.text_field(:"メニューコード1", {:class => "text_editor", :disabled =>"disabled", :size => "9", :maxlength => "4",  :value => @model.メニューコード} )%>
+		<input type="hidden" name="input_form[メニューコード]" value="<%=@model.メニューコード%>" />
+		<%=f.text_field(:"メニュー名称", {:class => "text_editor", :size => "23", :maxlength => "20",  :value => @model.メニュー名称} )%>
+	</div>
+
+  <div class="actions">
+    <% f.submit %>
+    <input type="submit" value="保存する" onclick="return chkMain_Menumasuta1();">
+  </div>
+

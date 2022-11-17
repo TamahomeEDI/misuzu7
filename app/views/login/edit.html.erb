@@ -1,0 +1,27 @@
+<label class="message"><%=@message%></label>
+<%= form_for "input_form", :url => { :action => "edit"}, :html => {:class => "nifty_form", :method => "POST" } do |f| %>
+	<div class="field_editor">
+		 <label class="label_editor_require">担当者コード:</label>
+		 <input id="tantocode" name="tantocode" type="text" maxlength="10" class="text_editor" value="<%=@tantoid%>" placeholder="担当者コード"/>
+		 <input type="hidden" value="<%=@tantoid%>" id="id" name="id">
+	</div>
+	
+	<div class="field_editor">
+		<label class="label_editor_require">パスワード:</label>
+		 <input id="password" name="password" maxlength="16" type="password" class="text_editor"/>
+	</div>
+	
+	<div class="field_editor">
+		<label class="label_editor_require">新パスワード:</label>
+		 <input id="newpassword" name="newpassword" maxlength="16" type="password" class="text_editor"/>
+	</div>
+	
+	<div class="field_editor">
+		<label class="label_editor_require">新パスワードの確認:</label>
+		 <input id="newpasswordconfirm" maxlength="16" name="newpasswordconfirm" type="password" class="text_editor"/>
+	</div>
+	
+	<div class="field_editor">
+		<input type="submit" min-width="150px" value="保存する" onclick="return chkMain_login_edit()" />
+	</div>
+<%end%>

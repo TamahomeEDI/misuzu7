@@ -1,0 +1,27 @@
+<% title @pageTitle %>
+<p id="notice"><label class="message"><%= @model.message%></label></p>
+	<div class="field_editor">
+		<%=label_tag("担当者コード", "担当者コード:", :class => "label_editor")%>	
+		<input name = "担当者コード" id = "担当者コード" class = "text_editor" size = "12" disabled = "disabled" value="<%=@model.担当者コード%>">
+		<input name = "担当者名称" id = "担当者名称" class = "text_editor" size = "27" disabled = "disabled" value="<%=@model.担当者名称%>">
+	</div>
+
+	<div class="field_editor">
+		<%=label_tag("画面プログラム", "画面プログラム:", :class => "label_editor")%>
+		<input name = "画面プログラム" id = "画面プログラム" class = "text_editor" size = "23" disabled = "disabled" value="<%=@model.画面プログラム%>">
+		<input name = "画面名称" id = "画面名称" class = "text_editor" size = "27" disabled = "disabled" value="<%=@model.画面名称%>">
+	</div>
+	
+	<div class="field_editor">
+		<%=label_tag("権限区分", "権限区分", :class => "label_editor")%>
+		<input name = "権限区分" id = "権限区分" class = "text_editor" size = "27" disabled = "disabled" value="<%=Tantosyabetugamenmasuta.Get権限区分(@model.権限区分)%>">
+	</div>	
+<p></p>
+<%= link_to "編集", :controller => "tantosyabetugamenmasuta", :action => "edit", :id => @model.担当者コード + "," + @model.画面プログラム%> |
+<%# Del by nmhuyen 15/10/2012 for bug controller too long%>
+<%#<%= link_to '担当グループマスタリスト', tantosyabetugamenmasuta_path %> | 
+<%# End Del%>
+<%# Add by nmhuyen 15/10/2012 for bug controller too long%>
+<%= link_to '担当グループマスタリスト', :controller => "tantosyabetugamenmasuta", :action => "index" %> | 
+<%# End Add%>
+<%=link_to "メニューリスト", :controller => "menu", :action => "index"%>

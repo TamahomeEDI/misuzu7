@@ -1,0 +1,24 @@
+　　	<div class="field_editor">
+		<%=f.label("生産管轄工場コード", "生産管轄工場コード:", :class => "label_editor_require")%>
+		 <% if @model.生産管轄工場コード.nil? || @model.生産管轄工場コード == "" || ( !@model.action_name.nil? && @model.action_name == "new" ) then  %>
+			<%=f.text_field(:"生産管轄工場コード", {:class => "text_editor", :size => "3", :maxlength => "3",  :value => @model.生産管轄工場コード} )%>
+		 <% else %>
+		 	<%=f.text_field(:"生産管轄工場コード", {:class => "text_editor", :disabled => "disabled", :maxlength => "3", :size => "3", :value => @model.生産管轄工場コード})%>
+		 <% end %>
+	</div>
+	
+	<div class="field_editor">
+		<%=f.label("生産管轄工場名称", "生産管轄工場名称:", :class => "label_editor_require")%>
+		<%=f.text_field(:"生産管轄工場名称", {:class => "text_editor", :size => "27", :maxlength => "20", :value => @model.生産管轄工場名称} )%>
+	</div>
+	
+	<div class="field_editor">
+		<%=f.label("自社外注区分", "自社外注区分:", :class => "label_editor")%>
+		<%= f.select("自社外注区分", options_for_select([[' ', 0], ['1:自社', 1],['2:外注', 2],['3:仕入', 3]], Integer(  (@model.自社外注区分.nil? ? "0" : @model.自社外注区分 )  ) ) )%>
+	</div>
+
+  <div class="actions">
+    <% f.submit %>
+    <input type="submit" value="保存する" onclick="return chkMain_Seisankankatukoujoumasuta();">
+  </div>
+

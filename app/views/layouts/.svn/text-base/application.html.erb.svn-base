@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= yield(:title) %></title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div style="display: inline-block; width: 100%;">
+	<div style="float:right; display: inline-block"><%= if session["tantocode"].nil? then link_to "ログイン", :controller => "login", :action => "index" else link_to "ログアウト", :controller => "login", :action => "logout" end;%></div>
+</div>
+<div>
+<%= yield %>
+</div>
+</body>
+</html>

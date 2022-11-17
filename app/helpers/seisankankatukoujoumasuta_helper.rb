@@ -1,0 +1,2 @@
+module SeisankankatukoujoumasutaHelper
+end

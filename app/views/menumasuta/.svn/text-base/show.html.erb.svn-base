@@ -1,0 +1,54 @@
+<% title @pageTitle %>
+<p id="notice"><label class="message"><%= @model.message%></label></p>
+<% if @screen == "1" then%>	
+	<div class="field_editor">
+		<%=label_tag("メニュー", "メニュー:", :class => "label_editor")%>	
+		<input name = "メニューコード" id = "メニューコード" class = "text_editor" size = "15" disabled = "disabled" value="<%=@model.メニューコード%>">
+		<input name = "メニュー名称" id = "メニュー名称" class = "text_editor" size = "27" disabled = "disabled" value="<%=@model.メニュー名称%>">
+	</div>
+		
+	<div class="field_editor">
+		<%=label_tag("親メニューコード", "親メニューコード:", :class => "label_editor")%>
+		<input name = "親メニューコード" id = "親メニューコード" class = "text_editor" size = "37" disabled = "disabled" value="<%=@model.親メニューコード%>">
+	</div>
+		
+	<div class="field_editor">
+		<%=label_tag("表示順序", "表示順序:", :class => "label_editor")%>
+		<input name = "表示順序" id = "表示順序" class = "text_editor" size = "15" disabled = "disabled" value="<%=@model.表示順序%>">
+	</div>	
+	<p></p>
+	<%= link_to "編集", {:controller => "menumasuta", :action => "edit", :id => @model.担当グループコード + "," + @model.メニューコード, "screen" => "1"}%> |
+	<%= link_to 'メニューマスタリスト', {:controller => "menumasuta", :action => "index", "tantogroupcode" => @tantogroupcode} %> | 
+	<%=link_to "メニューリスト", :controller => "menu", :action => "index"%>
+<%else%>
+	<div class="field_editor">
+		<%=label_tag("メニュー", "メニュー:", :class => "label_editor")%>	
+		<input name = "メニューコード" id = "メニューコード" class = "text_editor" size = "15" disabled = "disabled" value="<%=@model.メニューコード%>">
+		<input name = "メニュー名称" id = "メニュー名称" class = "text_editor" size = "27" disabled = "disabled" value="<%=@model.メニュー名称%>">
+	</div>
+	
+	<div class="field_editor">
+		<%=label_tag("画面", "画面:", :class => "label_editor")%>	
+		<input name = "画面プログラム" id = "画面プログラム" class = "text_editor" size = "15" disabled = "disabled" value="<%=@model.画面プログラム%>">
+		<input name = "画面名称" id = "画面名称" class = "text_editor" size = "27" disabled = "disabled" value="<%=@model.画面名称%>">
+	</div>
+		
+	<div class="field_editor">
+		<%=label_tag("権限区分", "権限区分:", :class => "label_editor")%>
+		<input name = "権限区分" id = "権限区分" class = "text_editor" size = "37" disabled = "disabled" value="<%=Tantogroupbetugamenmasuta.Get権限区分(@model.権限区分)%>">		
+	</div>
+		
+	<div class="field_editor">
+		<%=label_tag("表示順序", "表示順序:", :class => "label_editor")%>
+		<input name = "表示順序" id = "表示順序" class = "text_editor" size = "15" disabled = "disabled" value="<%=@model.表示順序%>">
+	</div>	
+	
+	<div class="field_editor">
+		<%=label_tag("ボタン名称", "ボタン名称:", :class => "label_editor")%>
+		<input name = "ボタン名称" id = "ボタン名称" class = "text_editor" size = "15" disabled = "disabled" value="<%=@model.ボタン名称%>">
+	</div>	
+	<p></p>
+	<%= link_to "編集", {:controller => "menumasuta", :action => "edit", :id => Publicfunction.pf_nvl_string(@model.担当グループコード, " ") + "," + Publicfunction.pf_nvl_string(@model.画面プログラム, " "), "screen" => "1"}%> |
+	<%= link_to 'メニューマスタリスト', {:controller => "menumasuta", :action => "index", "tantogroupcode" => @tantogroupcode} %> | 
+	<%=link_to "メニューリスト", :controller => "menu", :action => "index"%>
+<%end%>

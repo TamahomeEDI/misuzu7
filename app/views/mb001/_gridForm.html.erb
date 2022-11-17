@@ -1,0 +1,80 @@
+<table cellspacing="0" cellpadding="0" class="tableindex2" id="TANTOMASUTA">
+	<thead>
+		<tr>
+			<th></th>
+			<th class="headcolor">担当者コード</th>
+			<th colspan="2" class="headcolor">担当者名称</th>
+			<th class="headcolor">パスワード</th>
+			<th colspan="2">組織</th>
+			<th >ログインユーザー</th>
+		</tr>
+		<tr>
+			<th></th>
+			<th></th>
+			<th class="headcolor">開始日</th>
+			<th class="headcolor">終了日</th>
+			<th>パスワード更新日</th>
+			<th>社員区分</th>
+			<th class="headcolor">担当グループ</th>
+			<th>フォーカス＿メニュー</th>
+		</tr>		
+	</thead>
+<tbody>
+	<tr id='hiddenOne' class="hidden">
+	<td><input type="text" name="flag[]" value="ADDNEW" class="flag"></td>
+  	<td><input type="text" value="" name="TANTOUSYACODE[]" alt='担当者コード' maxlength="10"></td>
+  	<td colspan="2" ><input style="width: 225px" type="text" maxlength="20" value="" alt='担当者名称' name="TANTOUMEISYOU[]" /></td>
+  	<td ><input type="text" value="<%=@initialpass%>" name="PASS[]" alt='パスワード' maxlength="16"/></td>
+  	<td ><input type="text" name="SOSEKICODE[]" value="" maxlength="10"><input type="button" class="cursorhand"></td>
+  	<td ><label id="SOSEKINAME[]"></label></td>
+  	<td ><input type="text" value="" name="LOGINUSE[]" maxlength="32" style="width: 175px"/></td>
+   </tr>
+    <tr id='hiddenTwo' class="hidden">
+	  	<td></td>
+	  	<td></td>
+	  	<td><input alt='開始日' type="text" value="<%=@honjitudate.strftime("%Y/%m/%d")%>" name="KAISIDATE[]"/></td>
+	  	<td><input alt='終了日' type="text" value="2099/12/31" name="SYURYOUDATE[]"/></td>
+		<td><input type="text" value="<%=@honjitudate.strftime("%Y/%m/%d")%>" readonly="true" name="PASWORDUPDATEDATE[]" /></td>
+		<td><select name="SYAINKUBUN[]">
+		        <option selected="true" value="1">1</option>
+		        <option value="2">2</option>
+		        <option value="3">3</option>
+		        <option value="4">4</option>
+		        <option value="5">5</option>
+		    </select>
+		</td>
+		<td ><%= select_tag "TANTOUGROUPCODE[]", options_from_collection_for_select(@tantoGroupList, "担当グループコード", "担当グループ名称", "0"), {:alt => "担当グループコード", :prompt => " "}%></td>
+		<td><%= select_tag "FOCUSMENU[]", options_from_collection_for_select(getMenuList(nil), "メニューコード", "ListName", "0"), {"class" => "selectlist notrequire", :prompt => " "}%></td>
+  	</tr>
+<%if(!@models.nil?)%>
+	<% @models.each do |model| %>
+		<tr class="cssOne">
+			<td><input type="text" name="flag[]" value="" class="flag"></td>
+		  	<td><input alt='担当者コード ' class="required" maxlength="10" id="tantocode_<%=model.開始日.strftime("%Y%m%d")%>_<%=model.担当者コード%>"  onchange="chk_tantocode(this.value,$('#kaisijitu_<%=model.開始日.strftime("%Y%m%d")%>_<%=model.担当者コード%>').val())" type="text" value="<%=model.担当者コード%>" name="TANTOUSYACODE[]" readonly="readonly" /></td>
+		  	<td colspan="2" ><input style="width: 225px" type="text" maxlength="20" class="required" alt='担当者名称' value="<%=model.担当者名称%>" name="TANTOUMEISYOU[]" /></td>
+		  	<td><input alt='パスワード' maxlength="16" class="required" type="text" value="<%=model.パスワード%>" name="PASS[]" /></td>
+		  	<td><input onchange="update_sosikiname(this.value,'SOSEKINAME_<%=model.担当者コード%>');" id="SOSEKICODE_<%=model.担当者コード%>" maxlength="10" type="text" name="SOSEKICODE[]" value="<%=model.組織コード%>"><input class="cursorhand" type="button" onclick="ReferentGamen('SOSEKICODE_<%=model.担当者コード%>','SOSEKINAME_<%=model.担当者コード%>')" ></td>
+		  	<td><label name="SOSEKINAME[]" id='SOSEKINAME_<%=model.担当者コード%>'><%=model.組織名称%></label></td>
+		  	<td><input type="text" value="<%=model.ログインユーザー%>" name="LOGINUSE[]"  maxlength="32" style="width: 175px" /></td>
+		</tr>
+		<tr class="cssTwo">
+		  	<td ></td>
+		  	<td></td>
+		  	<td><input alt='開始日' class="required" onchange="chk_tantocode($('#tantocode_<%=model.開始日.strftime("%Y%m%d")%>_<%=model.担当者コード%>').val(),this.value)" type="text" id="kaisijitu_<%=model.開始日.strftime("%Y%m%d")%>_<%=model.担当者コード%>" value="<%=model.開始日.strftime("%Y/%m/%d")%>" name="KAISIDATE[]" readonly="readonly"/></td>
+		  	<td><input alt='終了日' class="required" type="text" value="<%=model.終了日.strftime("%Y/%m/%d")%>" name="SYURYOUDATE[]" /></td>
+			<td><input type="text" value="<%=model.パスワード更新日.strftime("%Y/%m/%d")%>" name="PASWORDUPDATEDATE[]" readonly="readonly"/></td>
+			<td><select name="SYAINKUBUN[]">
+			        <option <%= "selected='true'" if model.社員区分== '1' %> value="1">1</option>
+			        <option  <%= "selected='true'" if model.社員区分== '2' %> value="2">2</option>
+			        <option <%= "selected='true'" if model.社員区分== '3' %> value="3">3</option>
+			        <option <%= "selected='true'" if model.社員区分== '4' %> value="4">4</option>
+			        <option <%= "selected='true'" if model.社員区分== '5' %> value="5">5</option>
+			    </select>
+				</td>
+			<td><%= select_tag "TANTOUGROUPCODE[]", options_from_collection_for_select(@tantoGroupList, "担当グループコード", "担当グループ名称", model.担当グループコード), {"class" => "requireselectlist",:alt => '担当グループコード', :prompt => " ", :onchange => "update_focus_menu(this.options[this.selectedIndex].value,'"+ model.担当者コード.to_s + "')" }%></td>
+			<td><%= select_tag "FOCUSMENU[]", options_from_collection_for_select(getMenuList(model.担当グループコード), "メニューコード", "ListName", model.フォーカス_メニューコード), {"id" => model.担当者コード.to_s, "class" => "selectlist",:prompt => " "}%></td>
+	   </tr>
+	<% end %>
+<% end %>	
+</tbody>
+</table>

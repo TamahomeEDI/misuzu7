@@ -1,0 +1,10 @@
+<% title @pageTitle %>
+<h1>Editing</h1>
+<p id="notice"><label class="message"><%= @model.message%></label></p>
+<%= form_for "input_form", :url => { :action => "update", :id => @model.担当グループコード }, :html => {:class => "nifty_form", :method => "PUT" } do |f| %>
+<%= render 'form', :f => f %>
+<%end%>
+<p></p>
+<%= link_to "詳細", :controller => "tantogroupmasuta", :action => "show", :id => @model.担当グループコード%> |
+<%= link_to '担当グループマスタリスト', tantogroupmasuta_path %> |
+<%=link_to "メニューリスト", :controller => "menu", :action => "index"%>

@@ -1,0 +1,72 @@
+<% title @pageTitle %>
+<h1>担当グループマスタリスト</h1>
+<form id="input" name="input" method="get">
+<div>
+	<table>
+		<tr>
+			<td>担当グループ: </td>
+			<td>
+				<%= select_tag "tantogroupcode", options_from_collection_for_select(@tantoGroupList, "担当グループコード", "担当グループ名称", @tantogroupcode), {"class" => "selectlist", :prompt => " "}%>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>担当者: </td>
+			<td>
+				<%= select_tag "tantocode", options_from_collection_for_select(@tantoList, "担当者コード", "担当者名称", @tantocode), {"class" => "selectlist", :prompt => " "}%>
+			</td>
+		</tr>
+		
+		<tr>
+			<td>画面名称曖昧:</td>
+			<td><input type="text" size="128" maxlength="128" value="<%=@searchtext%>" name="gamenname" id="gamenname"/>
+				<select name="searchoption" id="searchoption">				  
+				  <option value="1" <%= case @seachoption when "1" then "selected='selected'" end%>>1:部分一致</option>
+				  <option value="2" <%= case @seachoption when "2" then "selected='selected'" end%>>2:前方一致</option>
+				  <option value="3" <%= case @seachoption when "3" then "selected='selected'" end%>>3:後方一致</option>
+				</select> 				
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2"><input type="submit" class="button" value="検　索 " style="width: 100px; height: 35px;"/></td>
+		</tr>
+	</table>
+</div>
+</form>
+<p id="notice"><label class="message"><%= @message%></label></p>
+<%= link_to "追加", {:controller => "tantosyabetugamenmasuta", :action => "new"}, "target" => "_blank"%> |
+<%= link_to "データ出力", current_url(:format => :csv)%>
+<table class="tableindex" cellspacing="0">
+	<thead>		
+	<tr>
+		<th colspan="2">担当者</th>
+		<th colspan="2">画面</th>
+		<th>権限</th>
+		<th></th>
+	</tr>		
+	</thead>
+<tbody>
+<% @models.each do |model| %>
+  <tr>
+  	<td><%= label_tag(model.担当者コード, model.担当者コード) %></td>
+  	<td><%= label_tag(model.担当者名称, model.担当者名称, :style => 'padding-left:10px;') %></td>
+  	<td><%= label_tag(model.画面プログラム, model.画面プログラム, :style => 'padding-left:10px;') %></td>
+  	<td><%= label_tag(model.画面名称, model.画面名称, :style => 'padding-left:10px;') %></td>
+  	<td><%= label_tag(Tantosyabetugamenmasuta.Get権限区分(model.権限区分), Tantosyabetugamenmasuta.Get権限区分(model.権限区分)) %></td>
+    <td>
+    	<%= link_to "詳細", {:controller => "tantosyabetugamenmasuta", :action => "show", :id => model.担当者コード + "," + model.画面プログラム.strip}, "target" => "_blank"%> | 
+	    <%= link_to "編集", {:controller => "tantosyabetugamenmasuta", :action => "edit", :id => model.担当者コード + "," + model.画面プログラム.strip}, "target" => "_blank"%> |
+	    <%= link_to "複写", {:controller => "tantosyabetugamenmasuta", :action => "new", :id => model.担当者コード + "," + model.画面プログラム.strip, "mode" => "1"}, {"target" => "_blank"}%> |
+	    <%= link_to '削除', url_for(:action => 'show', :controller => 'tantosyabetugamenmasuta', :id => model.担当者コード + "," + model.画面プログラム.strip), method: :delete, data: { confirm: 'このレコードを削除しますか？' } %>
+    </td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+<p></p>
+<%# Delete by nmhuyen 15/10/2012%>
+<%#<%=link_to "メニューリスト", :controller => "menu", :action => "index"%> 
+<%#End Del%>
+<%# Add by nmhuyen 15/10/2012 %>
+<%= link_to_function "メニューリスト", "history.back()" %>
+<%#End Add%>

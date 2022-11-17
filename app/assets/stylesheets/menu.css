@@ -1,0 +1,61 @@
+a.gamenbutton{
+	background-image: url("gamenButton_on.bmp");
+	height: 35px;
+	width: 200px;
+	display:block;
+	text-decoration: none;
+	text-align: center;
+	vertical-align: middle;
+	display:table-cell;
+}
+
+a.button{
+	background-image: url("button_on.bmp");
+	height: 35px;
+	width: 110px;
+	display:block;
+	text-decoration: none;
+	text-align: center;
+	vertical-align: middle;
+	padding-left:20px;
+	display:table-cell;
+}
+
+a.showhidebutton{
+	font-size: 12pt;
+	font-weight: bold;
+	text-decoration: none;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+span.selected{
+	background-image: url("main_select.ico");
+	background-repeat:no-repeat;
+	height: 16px;
+	width: 16px;
+	display:block;
+	display:table-cell;
+}
+
+span.notselected{
+	background-image: url("main_folder.ico");
+	background-repeat:no-repeat;
+	height: 16px;
+	width: 16px;
+	display:block;
+		display:table-cell;
+}
+
+span.root{
+	background-image: url("main_root.ico");
+	background-repeat:no-repeat;
+	height: 16px;
+	width: 16px;
+	display:block;	
+	display:table-cell;
+}
+
+div.trees ul{
+	list-style-type:none;
+}
